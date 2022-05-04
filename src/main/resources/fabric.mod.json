@@ -1,34 +1,34 @@
 {
     "schemaVersion": 1,
-    "id": "modid",
-    "version": "0.1.0",
+    "id": "particlemoths",
+    "version": "${version}",
 
-    "name": "Mod Name",
-    "description": "This mod is a template for other mods.",
+    "name": "Particle Moths",
+    "description": "Adds moths using particles.",
     "authors": [
         "ThePoultryMan"
     ],
     "contact": {
-        "sources": "https://github.com/ThePoultryMan/Mod-Template"
+        "sources": "https://github.com/ThePoultryMan/Particle-Moths"
     },
 
-    "license": "CC0-1.0",
-    "icon": "assets/modid/icon.png",
+    "license": "MIT",
+    "icon": "assets/particlemoths/icon.png",
 
     "environment": "*",
     "entrypoints": {
         "main": [
-            "thepoultryman.modid.ModClass"
+            "io.github.thepoultryman.particlemoths.ParticleMoths"
         ]
     },
     "mixins": [
-        "modid.mixins.json"
+        "particlemoths.mixins.json"
     ],
 
     "depends": {
-        "fabricloader": ">=0.12.12",
+        "fabricloader": ">=0.13.0",
         "fabric": "*",
-        "minecraft": "1.18.x",
+        "minecraft": "1.18.2",
         "java": ">=17"
     },
     "suggests": {
