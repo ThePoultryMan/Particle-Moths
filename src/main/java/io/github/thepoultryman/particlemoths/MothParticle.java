@@ -16,6 +16,15 @@ public class MothParticle extends AbstractSlowingParticle {
     }
 
     @Override
+    protected int getBrightness(float tint) {
+        if (!ParticleMoths.CONFIG.glowingMoths)
+            return super.getBrightness(tint);
+        else {
+            return 240;
+        }
+    }
+
+    @Override
     public void tick() {
         super.tick();
         this.setSpriteForAge(sprites);
