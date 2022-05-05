@@ -16,6 +16,12 @@ public class MothParticle extends AbstractSlowingParticle {
     }
 
     @Override
+    public void tick() {
+        super.tick();
+        this.setSpriteForAge(sprites);
+    }
+
+    @Override
     public ParticleTextureSheet getType() {
         return ParticleTextureSheet.PARTICLE_SHEET_OPAQUE;
     }

@@ -1,5 +1,6 @@
 {
     "textures": [
-        "particlemoths:moth"
+        "particlemoths:moth_1",
+        "particlemoths:moth_2"
     ]
 }
