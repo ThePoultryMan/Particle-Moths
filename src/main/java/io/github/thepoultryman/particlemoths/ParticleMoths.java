@@ -31,19 +31,16 @@ public class ParticleMoths implements ModInitializer {
 	}
 
 	private void createMothParticle(MinecraftClient client) {
-		if (client.world != null) {
-			World world = client.world;
-			PlayerEntity player = client.player;
-			Random random = world.getRandom();
+		if (client.world == null) return;
 
-			double velocity = world.getRandom().nextDouble(-0.5D, 0.5D);
-
-			double spawnX = player.getX() + random.nextDouble(-30, 30);
-			double spawnY = player.getY() + random.nextDouble(-30, 30);
-			double spawnZ = player.getZ() + random.nextDouble(-30, 30);
-
-			world.addParticle((ParticleEffect) Registry.PARTICLE_TYPE.get(new Identifier("particlemoths:moth")),
-					spawnX, spawnY, spawnZ, velocity, velocity, velocity);
-		}
+		World world = client.world;
+		PlayerEntity player = client.player;
+		Random random = world.getRandom();
+		double velocity = world.getRandom().nextDouble(-0.5D, 0.5D);
+		double spawnX = player.getX() + random.nextDouble(-30, 30);
+		double spawnY = player.getY() + random.nextDouble(-30, 30);
+		double spawnZ = player.getZ() + random.nextDouble(-30, 30);
+		world.addParticle((ParticleEffect) Registry.PARTICLE_TYPE.get(new Identifier("particlemoths:moth")),
+				spawnX, spawnY, spawnZ, velocity, 1, velocity);
 	}
 }
