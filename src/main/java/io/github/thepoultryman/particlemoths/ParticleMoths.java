@@ -41,6 +41,6 @@ public class ParticleMoths implements ModInitializer {
 		double spawnY = player.getY() + random.nextDouble(-30, 30);
 		double spawnZ = player.getZ() + random.nextDouble(-30, 30);
 		world.addParticle((ParticleEffect) Registry.PARTICLE_TYPE.get(new Identifier("particlemoths:moth")),
-				spawnX, spawnY, spawnZ, velocity, 1, velocity);
+				spawnX, spawnY, spawnZ, velocity, velocity, velocity);
 	}
 }
