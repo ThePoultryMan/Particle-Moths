@@ -57,9 +57,9 @@ public class ParticleMoths implements ClientModInitializer {
 		else {
 			world.addParticle((ParticleEffect) Registry.PARTICLE_TYPE.get(new Identifier("particlemoths:moth")),
 					spawnX, spawnY, spawnZ,
-					velocity * CONFIG.movementConfig.xVelocity,
-					velocity * CONFIG.movementConfig.yVelocity,
-					velocity * CONFIG.movementConfig.zVelocity);
+					velocity * (CONFIG.movementConfig.xVelocity / 100f),
+					velocity * (CONFIG.movementConfig.yVelocity / 100f),
+					velocity * (CONFIG.movementConfig.zVelocity / 100f));
 		}
 	}
 }

@@ -21,8 +21,11 @@ public class ParticleMothsConfig implements ConfigData {
     public static class MovementConfig {
         @ConfigEntry.Gui.Tooltip(count = 4)
         public boolean specificVelocities = false;
-        public double xVelocity = 1D;
-        public double yVelocity = 1D;
-        public double zVelocity = 1D;
+        @ConfigEntry.BoundedDiscrete(min = -500, max = 500)
+        public int xVelocity = 100;
+        @ConfigEntry.BoundedDiscrete(min = -500, max = 500)
+        public int yVelocity = 100;
+        @ConfigEntry.BoundedDiscrete(min = -500, max = 500)
+        public int zVelocity = 100;
     }
 }
