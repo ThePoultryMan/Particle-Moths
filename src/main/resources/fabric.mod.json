@@ -19,6 +19,9 @@
     "entrypoints": {
         "client": [
             "io.github.thepoultryman.particlemoths.ParticleMoths"
+        ],
+        "modmenu": [
+            "io.github.thepoultryman.particlemoths.config.ModMenuIntegration"
         ]
     },
     "mixins": [

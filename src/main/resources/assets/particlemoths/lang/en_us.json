@@ -1,0 +1,15 @@
+{
+    "text.autoconfig.particlemoths.title": "Particle Moths Config",
+    "text.autoconfig.particlemoths.option.glowingMoths": "Glowing Moths",
+    "text.autoconfig.particlemoths.option.glowingMoths.@Tooltip[0]": "The Moths (particles) will be forced to always",
+    "text.autoconfig.particlemoths.option.glowingMoths.@Tooltip[1]": "be full brightness.",
+    "text.autoconfig.particlemoths.option.movementConfig": "Movement Config",
+    "text.autoconfig.particlemoths.option.movementConfig.specificVelocities": "XYZ Specific Velocity (Read Tooltip)",
+    "text.autoconfig.particlemoths.option.movementConfig.specificVelocities.@Tooltip[0]": "If set to true, the velocity for each axis will",
+    "text.autoconfig.particlemoths.option.movementConfig.specificVelocities.@Tooltip[1]": "be set based on the values below. If set to",
+    "text.autoconfig.particlemoths.option.movementConfig.specificVelocities.@Tooltip[2]": "false, all of the velocities will be set based",
+    "text.autoconfig.particlemoths.option.movementConfig.specificVelocities.@Tooltip[3]": "on the 'X Velocity' value.",
+    "text.autoconfig.particlemoths.option.movementConfig.xVelocity": "X Velocity",
+    "text.autoconfig.particlemoths.option.movementConfig.yVelocity": "Y Velocity",
+    "text.autoconfig.particlemoths.option.movementConfig.zVelocity": "Z Velocity"
+}
