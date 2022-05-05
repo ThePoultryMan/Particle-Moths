@@ -7,11 +7,14 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 
 @Config(name = ParticleMoths.MOD_ID)
 public class ParticleMothsConfig implements ConfigData {
+    @ConfigEntry.Category("general")
     public boolean spawnMoths = true;
 
+    @ConfigEntry.Category("general")
     @ConfigEntry.Gui.Tooltip(count = 2)
     public boolean glowingMoths = false;
 
+    @ConfigEntry.Category("general")
     @ConfigEntry.Gui.CollapsibleObject
     public MovementConfig movementConfig = new MovementConfig();
 

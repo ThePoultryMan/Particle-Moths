@@ -1,5 +1,6 @@
 {
     "text.autoconfig.particlemoths.title": "Particle Moths Config",
+    "text.autoconfig.particlemoths.category.general": "General",
     "text.autoconfig.particlemoths.option.spawnMoths": "Spawn Moths",
     "text.autoconfig.particlemoths.option.glowingMoths": "Glowing Moths",
     "text.autoconfig.particlemoths.option.glowingMoths.@Tooltip[0]": "The Moths (particles) will be forced to always",
