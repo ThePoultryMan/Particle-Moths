@@ -50,7 +50,16 @@ public class ParticleMoths implements ClientModInitializer {
 		double spawnX = player.getX() + random.nextDouble(-30, 30);
 		double spawnY = player.getY() + random.nextDouble(-30, 30);
 		double spawnZ = player.getZ() + random.nextDouble(-30, 30);
-		world.addParticle((ParticleEffect) Registry.PARTICLE_TYPE.get(new Identifier("particlemoths:moth")),
+
+		if (!CONFIG.movementConfig.specificVelocities)
+			world.addParticle((ParticleEffect) Registry.PARTICLE_TYPE.get(new Identifier("particlemoths:moth")),
 				spawnX, spawnY, spawnZ, velocity, velocity, velocity);
+		else {
+			world.addParticle((ParticleEffect) Registry.PARTICLE_TYPE.get(new Identifier("particlemoths:moth")),
+					spawnX, spawnY, spawnZ,
+					velocity * CONFIG.movementConfig.xVelocity,
+					velocity * CONFIG.movementConfig.yVelocity,
+					velocity * CONFIG.movementConfig.zVelocity);
+		}
 	}
 }
