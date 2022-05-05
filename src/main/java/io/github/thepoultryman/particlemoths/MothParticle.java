@@ -7,8 +7,12 @@ import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particle.DefaultParticleType;
 
 public class MothParticle extends AbstractSlowingParticle {
-    protected MothParticle(ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
+    SpriteProvider sprites;
+
+    protected MothParticle(ClientWorld clientWorld, double d, double e, double f, double g, double h, double i, SpriteProvider sprites) {
         super(clientWorld, d, e, f, g, h, i);
+        this.sprites = sprites;
+        this.setSpriteForAge(this.sprites);
     }
 
     @Override
@@ -17,17 +21,9 @@ public class MothParticle extends AbstractSlowingParticle {
     }
 
     @Environment(EnvType.CLIENT)
-    public static class Factory implements ParticleFactory<DefaultParticleType> {
-        private final SpriteProvider spriteProvider;
-
-        public Factory(SpriteProvider spriteProvider) {
-            this.spriteProvider = spriteProvider;
-        }
-
+    public record Factory(SpriteProvider sprites) implements ParticleFactory<DefaultParticleType> {
         public Particle createParticle(DefaultParticleType defaultParticleType, ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
-            MothParticle mothParticle = new MothParticle(clientWorld, d, e, f, g, h, i);
-            mothParticle.setSprite(this.spriteProvider);
-            return mothParticle;
+            return new MothParticle(clientWorld, d, e, f, g, h, i, sprites);
         }
     }
 }
