@@ -15,7 +15,7 @@
     "license": "MIT",
     "icon": "assets/particlemoths/icon.png",
 
-    "environment": "*",
+    "environment": "client",
     "entrypoints": {
         "client": [
             "io.github.thepoultryman.particlemoths.ParticleMoths"
