@@ -1,7 +1,9 @@
 package io.github.thepoultryman.particlemoths;
 
+import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,17 +17,18 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Random;
 
-public class ParticleMoths implements ModInitializer {
+public class ParticleMoths implements ClientModInitializer {
 	public static final String MOD_ID = "particlemoths";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	public static final DefaultParticleType MOTH = FabricParticleTypes.simple();
 
 	@Override
-	public void onInitialize() {
+	public void onInitializeClient() {
 		LOGGER.info("Initializing (Particle) Moths");
 
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(MOD_ID, "moth"), MOTH);
+		ParticleFactoryRegistry.getInstance().register(ParticleMoths.MOTH, MothParticle.Factory::new);
 
 		ClientTickEvents.END_CLIENT_TICK.register(this::createMothParticle);
 	}

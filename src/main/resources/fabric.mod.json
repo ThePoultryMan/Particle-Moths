@@ -17,11 +17,8 @@
 
     "environment": "*",
     "entrypoints": {
-        "main": [
-            "io.github.thepoultryman.particlemoths.ParticleMoths"
-        ],
         "client": [
-            "io.github.thepoultryman.particlemoths.ParticleMothsClient"
+            "io.github.thepoultryman.particlemoths.ParticleMoths"
         ]
     },
     "mixins": [
