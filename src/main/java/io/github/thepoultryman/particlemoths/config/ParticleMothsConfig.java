@@ -8,16 +8,16 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 @Config(name = ParticleMoths.MOD_ID)
 public class ParticleMothsConfig implements ConfigData {
     @ConfigEntry.Gui.Tooltip(count = 2)
-    boolean glowingMoths = false;
+    public boolean glowingMoths = false;
 
     @ConfigEntry.Gui.CollapsibleObject
-    MovementConfig movementConfig = new MovementConfig();
+    public MovementConfig movementConfig = new MovementConfig();
 
-    static class MovementConfig {
+    public static class MovementConfig {
         @ConfigEntry.Gui.Tooltip(count = 4)
-        boolean specificVelocities = false;
-        double xVelocity = 1D;
-        double yVelocity = 1D;
-        double zVelocity = 1D;
+        public boolean specificVelocities = false;
+        public double xVelocity = 1D;
+        public double yVelocity = 1D;
+        public double zVelocity = 1D;
     }
 }
