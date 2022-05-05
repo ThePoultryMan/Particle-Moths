@@ -23,6 +23,8 @@ public class ParticleMoths implements ClientModInitializer {
 	public static final String MOD_ID = "particlemoths";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
+	public static ParticleMothsConfig CONFIG;
+
 	public static final DefaultParticleType MOTH = FabricParticleTypes.simple();
 
 	@Override
@@ -30,6 +32,7 @@ public class ParticleMoths implements ClientModInitializer {
 		LOGGER.info("Initializing (Particle) Moths");
 
 		AutoConfig.register(ParticleMothsConfig.class, Toml4jConfigSerializer::new);
+		CONFIG = AutoConfig.getConfigHolder(ParticleMothsConfig.class).getConfig();
 
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(MOD_ID, "moth"), MOTH);
 		ParticleFactoryRegistry.getInstance().register(ParticleMoths.MOTH, MothParticle.Factory::new);
