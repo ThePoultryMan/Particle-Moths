@@ -18,6 +18,10 @@ public class MothSpawnHelper {
         return basicCheck && probabilityCheck;
     }
 
+    public static boolean isValidMothSpawn(World world, BlockPos pos) {
+        return !isInRainOrWater(world, pos) && isWithinHeightLimits(pos.getY());
+    }
+
     public static BlockPos getSpawnCoordinates(BlockPos pos) {
         int[] spawnBound = {ParticleMoths.CONFIG.xSpawnDistance, ParticleMoths.CONFIG.ySpawnDistance, ParticleMoths.CONFIG.zSpawnDistance};
         double spawnX = pos.getX() + random.nextDouble(-spawnBound[0], spawnBound[0]);
