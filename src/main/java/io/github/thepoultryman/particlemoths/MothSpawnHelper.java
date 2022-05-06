@@ -48,13 +48,13 @@ public class MothSpawnHelper {
         }
     }
 
-    public static void spawnMoth(World world, BlockPos pos) {
-        if (!ParticleMoths.CONFIG.spawnMoths) return;
+    public static void spawnMothByBlock(World world, BlockPos pos) {
+        if (!ParticleMoths.CONFIG.spawnMoths || random.nextInt(100) < ParticleMoths.CONFIG.blockSpawnProbability) return;
 
         double[] spawnCoordinates = MothSpawnHelper.getBlockSpawnCoordinates(pos);
         double[] velocities = MothSpawnHelper.getVelocity();
 
         world.addParticle((ParticleEffect) Registry.PARTICLE_TYPE.get(new Identifier("particlemoths:moth")),
-                spawnCoordinates[0], spawnCoordinates[1], spawnCoordinates[2], velocities[0], velocities[1], velocities[2]);
+                spawnCoordinates[0], spawnCoordinates[1], spawnCoordinates[2], velocities[0] / 5f, velocities[1] / 5f, velocities[2] / 5f);
     }
 }

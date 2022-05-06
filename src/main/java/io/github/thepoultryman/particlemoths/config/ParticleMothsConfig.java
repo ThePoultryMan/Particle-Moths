@@ -32,11 +32,14 @@ public class ParticleMothsConfig implements ConfigData {
     public int zSpawnDistance = 30;
 
     @ConfigEntry.Category("blockSpawning")
-    public int xBlockSpawnDistance = 5;
+    @ConfigEntry.Gui.Tooltip
+    public int blockSpawnProbability = 15;
     @ConfigEntry.Category("blockSpawning")
-    public int yBlockSpawnDistance = 5;
+    public int xBlockSpawnDistance = 3;
     @ConfigEntry.Category("blockSpawning")
-    public int zBlockSpawnDistance = 5;
+    public int yBlockSpawnDistance = 3;
+    @ConfigEntry.Category("blockSpawning")
+    public int zBlockSpawnDistance = 3;
 
     public static class MovementConfig {
         @ConfigEntry.Gui.Tooltip
