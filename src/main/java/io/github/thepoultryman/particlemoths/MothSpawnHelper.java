@@ -18,22 +18,22 @@ public class MothSpawnHelper {
         return basicCheck && probabilityCheck;
     }
 
-    public static double[] getSpawnCoordinates(BlockPos pos) {
+    public static BlockPos getSpawnCoordinates(BlockPos pos) {
         int[] spawnBound = {ParticleMoths.CONFIG.xSpawnDistance, ParticleMoths.CONFIG.ySpawnDistance, ParticleMoths.CONFIG.zSpawnDistance};
         double spawnX = pos.getX() + random.nextDouble(-spawnBound[0], spawnBound[0]);
         double spawnY = pos.getY() + random.nextDouble(-spawnBound[1], spawnBound[1]);
         double spawnZ = pos.getZ() + random.nextDouble(-spawnBound[2], spawnBound[2]);
 
-        return new double[] {spawnX, spawnY, spawnZ};
+        return new BlockPos(spawnX, spawnY, spawnZ);
     }
 
-    public static double[] getBlockSpawnCoordinates(BlockPos pos) {
+    public static BlockPos getBlockSpawnCoordinates(BlockPos pos) {
         int[] spawnBound = {ParticleMoths.CONFIG.xBlockSpawnDistance, ParticleMoths.CONFIG.yBlockSpawnDistance, ParticleMoths.CONFIG.zBlockSpawnDistance};
         double spawnX = pos.getX() + random.nextDouble(-spawnBound[0], spawnBound[0]);
         double spawnY = pos.getY() + random.nextDouble(-spawnBound[1], spawnBound[1]);
         double spawnZ = pos.getZ() + random.nextDouble(-spawnBound[2], spawnBound[2]);
 
-        return new double[] {spawnX, spawnY, spawnZ};
+        return new BlockPos(spawnX, spawnY, spawnZ);
     }
 
     public static double[] getVelocity() {
@@ -51,17 +51,16 @@ public class MothSpawnHelper {
     public static void spawnMothByBlock(World world, BlockPos pos) {
         if (!ParticleMoths.CONFIG.spawnMoths || random.nextInt(100) > ParticleMoths.CONFIG.blockSpawnProbability) return;
 
-        double[] spawnCoordinates = MothSpawnHelper.getBlockSpawnCoordinates(pos);
-        if (isInRainOrWater(world, spawnCoordinates)) return;
+        BlockPos spawnPos = getBlockSpawnCoordinates(pos);
+        if (isInRainOrWater(world, spawnPos)) return;
         double[] velocities = MothSpawnHelper.getVelocity();
 
         world.addParticle((ParticleEffect) Registry.PARTICLE_TYPE.get(new Identifier("particlemoths:moth")),
-                spawnCoordinates[0], spawnCoordinates[1], spawnCoordinates[2], velocities[0] / 5f, velocities[1] / 5f, velocities[2] / 5f);
+                spawnPos.getX(), spawnPos.getY(), spawnPos.getZ(), velocities[0] / 5f, velocities[1] / 5f, velocities[2] / 5f);
     }
 
-    public static boolean isInRainOrWater(World world, double[] spawnCoordinates) {
-        return world.hasRain(new BlockPos(spawnCoordinates[0], spawnCoordinates[1], spawnCoordinates[2]))
-                || world.isWater(new BlockPos(spawnCoordinates[0], spawnCoordinates[1], spawnCoordinates[2]));
+    public static boolean isInRainOrWater(World world, BlockPos pos) {
+        return world.hasRain(pos) || world.isWater(pos);
     }
 
     public static boolean isWithinHeightLimits(int yLevel) {
