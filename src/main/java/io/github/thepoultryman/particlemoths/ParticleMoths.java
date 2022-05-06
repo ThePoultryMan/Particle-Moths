@@ -17,8 +17,6 @@ import net.minecraft.world.World;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Random;
-
 public class ParticleMoths implements ClientModInitializer {
 	public static final String MOD_ID = "particlemoths";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
@@ -45,14 +43,11 @@ public class ParticleMoths implements ClientModInitializer {
 
 		World world = client.world;
 		PlayerEntity player = client.player;
-		Random random = world.getRandom();
-		double velocity = world.getRandom().nextDouble(-0.75D, 0.75D);
-		double spawnX = player.getX() + random.nextDouble(-30, 30);
-		double spawnY = player.getY() + random.nextDouble(-30, 30);
-		double spawnZ = player.getZ() + random.nextDouble(-30, 30);
 
+		double[] spawnCoordinates = MothSpawnHelper.getSpawnCoordinates(player);
 		double[] velocities = MothSpawnHelper.getVelocity();
+
 		world.addParticle((ParticleEffect) Registry.PARTICLE_TYPE.get(new Identifier("particlemoths:moth")),
-				spawnX, spawnY, spawnZ, velocities[0], velocities[1], velocities[2]);
+				spawnCoordinates[0], spawnCoordinates[1], spawnCoordinates[2], velocities[0], velocities[1], velocities[2]);
 	}
 }

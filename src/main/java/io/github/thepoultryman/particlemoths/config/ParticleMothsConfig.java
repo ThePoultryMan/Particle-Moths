@@ -18,6 +18,13 @@ public class ParticleMothsConfig implements ConfigData {
     @ConfigEntry.Gui.CollapsibleObject
     public MovementConfig movementConfig = new MovementConfig();
 
+    @ConfigEntry.Category("spawning")
+    public int xSpawnDistance = 30;
+    @ConfigEntry.Category("spawning")
+    public int ySpawnDistance = 30;
+    @ConfigEntry.Category("spawning")
+    public int zSpawnDistance = 30;
+
     public static class MovementConfig {
         @ConfigEntry.Gui.Tooltip(count = 4)
         public boolean specificVelocities = true;

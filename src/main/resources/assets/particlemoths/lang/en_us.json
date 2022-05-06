@@ -13,5 +13,9 @@
     "text.autoconfig.particlemoths.option.movementConfig.specificVelocities.@Tooltip[3]": "on the 'X Velocity' value.",
     "text.autoconfig.particlemoths.option.movementConfig.xVelocity": "X Velocity",
     "text.autoconfig.particlemoths.option.movementConfig.yVelocity": "Y Velocity",
-    "text.autoconfig.particlemoths.option.movementConfig.zVelocity": "Z Velocity"
+    "text.autoconfig.particlemoths.option.movementConfig.zVelocity": "Z Velocity",
+    "text.autoconfig.particlemoths.category.spawning": "Spawning",
+    "text.autoconfig.particlemoths.option.xSpawnDistance": "X Spawn Distance",
+    "text.autoconfig.particlemoths.option.ySpawnDistance": "Y Spawn Distance",
+    "text.autoconfig.particlemoths.option.zSpawnDistance": "Z Spawn Distance"
 }
