@@ -18,8 +18,12 @@ public class MothSpawnHelper {
         return basicCheck && probabilityCheck;
     }
 
-    public static boolean isValidMothSpawn(World world, BlockPos pos) {
-        return !isInRainOrWater(world, pos) && isWithinHeightLimits(pos.getY());
+    public static boolean isValidMothSpawn(World world, BlockPos pos, MinecraftClient client) {
+        boolean initialCheck = !isInRainOrWater(world, pos) && isWithinHeightLimits(pos.getY());
+        if (client.player != null)
+            return initialCheck && !client.player.clientWorld.isSkyVisible(client.player.getBlockPos());
+        else
+            return false;
     }
 
     public static BlockPos getSpawnCoordinates(BlockPos pos) {
