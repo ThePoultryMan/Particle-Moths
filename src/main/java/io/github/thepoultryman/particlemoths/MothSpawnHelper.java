@@ -63,4 +63,8 @@ public class MothSpawnHelper {
         return world.hasRain(new BlockPos(spawnCoordinates[0], spawnCoordinates[1], spawnCoordinates[2]))
                 || world.isWater(new BlockPos(spawnCoordinates[0], spawnCoordinates[1], spawnCoordinates[2]));
     }
+
+    public static boolean isWithinHeightLimits(int yLevel) {
+        return yLevel >= ParticleMoths.CONFIG.heightLimits.negHeight && yLevel <= ParticleMoths.CONFIG.heightLimits.posHeight;
+    }
 }

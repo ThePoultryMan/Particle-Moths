@@ -23,5 +23,8 @@
     "text.autoconfig.particlemoths.option.blockSpawnProbability.@Tooltip": "The percentage chance out of 100 that a moth\nwill spawn near a light block.",
     "text.autoconfig.particlemoths.option.xBlockSpawnDistance": "X Block Spawn Distance",
     "text.autoconfig.particlemoths.option.yBlockSpawnDistance": "Y Block Spawn Distance",
-    "text.autoconfig.particlemoths.option.zBlockSpawnDistance": "Z Block Spawn Distance"
+    "text.autoconfig.particlemoths.option.zBlockSpawnDistance": "Z Block Spawn Distance",
+    "text.autoconfig.particlemoths.option.heightLimits": "Height Limits",
+    "text.autoconfig.particlemoths.option.heightLimits.posHeight": "Upper Height Limit",
+    "text.autoconfig.particlemoths.option.heightLimits.negHeight": "Lower Height Limit"
 }

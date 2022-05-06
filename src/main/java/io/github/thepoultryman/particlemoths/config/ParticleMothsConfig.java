@@ -18,11 +18,11 @@ public class ParticleMothsConfig implements ConfigData {
 
     @ConfigEntry.Category("spawning")
     @ConfigEntry.Gui.Tooltip
-    @ConfigEntry.BoundedDiscrete(max = 100)
+    @ConfigEntry.BoundedDiscrete(max = 99)
     public int mothCount = 15;
     @ConfigEntry.Category("spawning")
     @ConfigEntry.Gui.Tooltip
-    @ConfigEntry.BoundedDiscrete(min = 1, max = 100)
+    @ConfigEntry.BoundedDiscrete(min = 2, max = 100)
     public int spawnProbability = 13;
     @ConfigEntry.Category("spawning")
     public int xSpawnDistance = 30;
@@ -30,6 +30,9 @@ public class ParticleMothsConfig implements ConfigData {
     public int ySpawnDistance = 30;
     @ConfigEntry.Category("spawning")
     public int zSpawnDistance = 30;
+    @ConfigEntry.Category("spawning")
+    @ConfigEntry.Gui.CollapsibleObject
+    public HeightLimits heightLimits = new HeightLimits();
 
     @ConfigEntry.Category("blockSpawning")
     @ConfigEntry.Gui.Tooltip
@@ -50,5 +53,10 @@ public class ParticleMothsConfig implements ConfigData {
         public int yVelocity = 100;
         @ConfigEntry.BoundedDiscrete(min = -500, max = 500)
         public int zVelocity = 100;
+    }
+
+    public static class HeightLimits {
+        public int posHeight = 192;
+        public int negHeight = -10;
     }
 }

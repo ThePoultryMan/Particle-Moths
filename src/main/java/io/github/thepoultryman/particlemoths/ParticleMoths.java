@@ -12,6 +12,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import org.slf4j.Logger;
@@ -45,7 +46,8 @@ public class ParticleMoths implements ClientModInitializer {
 		PlayerEntity player = client.player;
 
 		double[] spawnCoordinates = MothSpawnHelper.getSpawnCoordinates(player.getBlockPos());
-		if (MothSpawnHelper.isInRainOrWater(world, spawnCoordinates)) return;
+		BlockPos spawnPos = new BlockPos(spawnCoordinates[0], spawnCoordinates[1], spawnCoordinates[2]);
+		if (MothSpawnHelper.isInRainOrWater(world, spawnCoordinates) || !MothSpawnHelper.isWithinHeightLimits(spawnPos.getY())) return;
 		double[] velocities = MothSpawnHelper.getVelocity();
 
 		world.addParticle((ParticleEffect) Registry.PARTICLE_TYPE.get(new Identifier("particlemoths:moth")),
