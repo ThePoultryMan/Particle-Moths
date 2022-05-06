@@ -1,7 +1,11 @@
 package io.github.thepoultryman.particlemoths;
 
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.World;
 
 import java.util.Random;
 
@@ -14,11 +18,11 @@ public class MothSpawnHelper {
         return basicCheck && probabilityCheck;
     }
 
-    public static double[] getSpawnCoordinates(PlayerEntity player) {
+    public static double[] getSpawnCoordinates(BlockPos pos) {
         int[] spawnBound = {ParticleMoths.CONFIG.xSpawnDistance, ParticleMoths.CONFIG.ySpawnDistance, ParticleMoths.CONFIG.zSpawnDistance};
-        double spawnX = player.getX() + random.nextDouble(-spawnBound[0], spawnBound[0]);
-        double spawnY = player.getY() + random.nextDouble(-spawnBound[1], spawnBound[1]);
-        double spawnZ = player.getZ() + random.nextDouble(-spawnBound[2], spawnBound[2]);
+        double spawnX = pos.getX() + random.nextDouble(-spawnBound[0], spawnBound[0]);
+        double spawnY = pos.getY() + random.nextDouble(-spawnBound[1], spawnBound[1]);
+        double spawnZ = pos.getZ() + random.nextDouble(-spawnBound[2], spawnBound[2]);
 
         return new double[] {spawnX, spawnY, spawnZ};
     }

@@ -44,7 +44,7 @@ public class ParticleMoths implements ClientModInitializer {
 		World world = client.world;
 		PlayerEntity player = client.player;
 
-		double[] spawnCoordinates = MothSpawnHelper.getSpawnCoordinates(player);
+		double[] spawnCoordinates = MothSpawnHelper.getSpawnCoordinates(player.getBlockPos());
 		double[] velocities = MothSpawnHelper.getVelocity();
 
 		world.addParticle((ParticleEffect) Registry.PARTICLE_TYPE.get(new Identifier("particlemoths:moth")),
