@@ -10,7 +10,7 @@ public class ParticleMothsConfig implements ConfigData {
     @ConfigEntry.Category("general")
     public boolean spawnMoths = true;
     @ConfigEntry.Category("general")
-    @ConfigEntry.Gui.Tooltip(count = 2)
+    @ConfigEntry.Gui.Tooltip
     public boolean glowingMoths = false;
     @ConfigEntry.Category("general")
     @ConfigEntry.Gui.CollapsibleObject
@@ -32,7 +32,7 @@ public class ParticleMothsConfig implements ConfigData {
     public int zSpawnDistance = 30;
 
     public static class MovementConfig {
-        @ConfigEntry.Gui.Tooltip(count = 4)
+        @ConfigEntry.Gui.Tooltip
         public boolean specificVelocities = true;
         @ConfigEntry.BoundedDiscrete(min = -500, max = 500)
         public int xVelocity = 100;
