@@ -1,5 +1,6 @@
 package io.github.thepoultryman.particlemoths;
 
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 
 import java.util.Random;
@@ -7,8 +8,8 @@ import java.util.Random;
 public class MothSpawnHelper {
     private static final Random random = new Random();
 
-    public static boolean shouldSpawnMoth() {
-        return ParticleMoths.CONFIG.spawnMoths;
+    public static boolean shouldSpawnMoth(MinecraftClient client) {
+        return ParticleMoths.CONFIG.spawnMoths && !client.isPaused();
     }
 
     public static double[] getSpawnCoordinates(PlayerEntity player) {
