@@ -39,7 +39,7 @@ public class ParticleMoths implements ClientModInitializer {
 	}
 
 	private void createMothParticle(MinecraftClient client) {
-		if (client.world == null || !MothSpawnHelper.shouldSpawnMoth()) return;
+		if (client.world == null || !MothSpawnHelper.shouldSpawnMoth(client)) return;
 
 		World world = client.world;
 		PlayerEntity player = client.player;
