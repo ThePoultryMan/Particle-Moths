@@ -52,10 +52,15 @@ public class MothSpawnHelper {
         if (!ParticleMoths.CONFIG.spawnMoths || random.nextInt(100) > ParticleMoths.CONFIG.blockSpawnProbability) return;
 
         double[] spawnCoordinates = MothSpawnHelper.getBlockSpawnCoordinates(pos);
-        if (world.hasRain(new BlockPos(spawnCoordinates[0], spawnCoordinates[1], spawnCoordinates[2]))) return;
+        if (isInRainOrWater(world, spawnCoordinates)) return;
         double[] velocities = MothSpawnHelper.getVelocity();
 
         world.addParticle((ParticleEffect) Registry.PARTICLE_TYPE.get(new Identifier("particlemoths:moth")),
                 spawnCoordinates[0], spawnCoordinates[1], spawnCoordinates[2], velocities[0] / 5f, velocities[1] / 5f, velocities[2] / 5f);
+    }
+
+    public static boolean isInRainOrWater(World world, double[] spawnCoordinates) {
+        return world.hasRain(new BlockPos(spawnCoordinates[0], spawnCoordinates[1], spawnCoordinates[2]))
+                || world.isWater(new BlockPos(spawnCoordinates[0], spawnCoordinates[1], spawnCoordinates[2]));
     }
 }
