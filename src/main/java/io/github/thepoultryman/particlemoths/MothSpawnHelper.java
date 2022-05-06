@@ -11,7 +11,6 @@ public class MothSpawnHelper {
     public static boolean shouldSpawnMoth(MinecraftClient client) {
         boolean basicCheck = ParticleMoths.CONFIG.spawnMoths && !client.isPaused();
         boolean probabilityCheck = random.nextInt(100 - ParticleMoths.CONFIG.mothCount) < ParticleMoths.CONFIG.spawnProbability;
-        ParticleMoths.LOGGER.info(String.valueOf(probabilityCheck));
         return basicCheck && probabilityCheck;
     }
 
