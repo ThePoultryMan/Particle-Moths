@@ -4,6 +4,7 @@
     "package": "io.github.thepoultryman.particlemoths.mixin",
     "compatibilityLevel": "JAVA_17",
     "client": [
+        "CandleMixin",
         "RedstoneLampMixin",
         "RedstoneTorchMixin",
         "TorchMixin"
