@@ -27,6 +27,15 @@ public class MothSpawnHelper {
         return new double[] {spawnX, spawnY, spawnZ};
     }
 
+    public static double[] getBlockSpawnCoordinates(BlockPos pos) {
+        int[] spawnBound = {ParticleMoths.CONFIG.xBlockSpawnDistance, ParticleMoths.CONFIG.yBlockSpawnDistance, ParticleMoths.CONFIG.zBlockSpawnDistance};
+        double spawnX = pos.getX() + random.nextDouble(-spawnBound[0], spawnBound[0]);
+        double spawnY = pos.getY() + random.nextDouble(-spawnBound[1], spawnBound[1]);
+        double spawnZ = pos.getZ() + random.nextDouble(-spawnBound[2], spawnBound[2]);
+
+        return new double[] {spawnX, spawnY, spawnZ};
+    }
+
     public static double[] getVelocity() {
         if (!ParticleMoths.CONFIG.movementConfig.specificVelocities) {
             double velocity = random.nextDouble(-0.75f, 0.75f) * (ParticleMoths.CONFIG.movementConfig.xVelocity / 100f);
@@ -37,5 +46,15 @@ public class MothSpawnHelper {
             double velocityZ = random.nextDouble(-0.75f, 0.75f) * (ParticleMoths.CONFIG.movementConfig.zVelocity / 100f);
             return new double[] {velocityX, velocityY, velocityZ};
         }
+    }
+
+    public static void spawnMoth(World world, BlockPos pos) {
+        if (!ParticleMoths.CONFIG.spawnMoths) return;
+
+        double[] spawnCoordinates = MothSpawnHelper.getBlockSpawnCoordinates(pos);
+        double[] velocities = MothSpawnHelper.getVelocity();
+
+        world.addParticle((ParticleEffect) Registry.PARTICLE_TYPE.get(new Identifier("particlemoths:moth")),
+                spawnCoordinates[0], spawnCoordinates[1], spawnCoordinates[2], velocities[0], velocities[1], velocities[2]);
     }
 }

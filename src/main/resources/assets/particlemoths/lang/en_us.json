@@ -17,5 +17,9 @@
     "text.autoconfig.particlemoths.option.spawnProbability.@Tooltip": "Increasing this value will increase the *chance*\nthat moths will spawn. Even though it only\nincreases the chance, you will see a quite\nobvious increase of moths.",
     "text.autoconfig.particlemoths.option.xSpawnDistance": "X Spawn Distance",
     "text.autoconfig.particlemoths.option.ySpawnDistance": "Y Spawn Distance",
-    "text.autoconfig.particlemoths.option.zSpawnDistance": "Z Spawn Distance"
+    "text.autoconfig.particlemoths.option.zSpawnDistance": "Z Spawn Distance",
+    "text.autoconfig.particlemoths.category.blockSpawning": "Block Spawning",
+    "text.autoconfig.particlemoths.option.xBlockSpawnDistance": "X Block Spawn Distance",
+    "text.autoconfig.particlemoths.option.yBlockSpawnDistance": "Y Block Spawn Distance",
+    "text.autoconfig.particlemoths.option.zBlockSpawnDistance": "Z Block Spawn Distance"
 }
