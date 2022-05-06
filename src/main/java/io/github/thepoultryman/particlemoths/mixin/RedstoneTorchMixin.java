@@ -20,7 +20,7 @@ public class RedstoneTorchMixin {
     @Shadow @Final public static BooleanProperty LIT;
 
     @Inject(at = @At("TAIL"), method = "randomDisplayTick")
-    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random, CallbackInfo ci) {
+    public void particlemoths$spawnMothByRedstoneTorch(BlockState state, World world, BlockPos pos, Random random, CallbackInfo ci) {
         if (state.get(LIT))
             MothSpawnHelper.spawnMothByBlock(world, pos);
     }
