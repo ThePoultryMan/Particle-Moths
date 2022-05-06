@@ -9,7 +9,10 @@ public class MothSpawnHelper {
     private static final Random random = new Random();
 
     public static boolean shouldSpawnMoth(MinecraftClient client) {
-        return ParticleMoths.CONFIG.spawnMoths && !client.isPaused();
+        boolean basicCheck = ParticleMoths.CONFIG.spawnMoths && !client.isPaused();
+        boolean probabilityCheck = random.nextInt(100 - ParticleMoths.CONFIG.mothCount) < ParticleMoths.CONFIG.spawnProbability;
+        ParticleMoths.LOGGER.info(String.valueOf(probabilityCheck));
+        return basicCheck && probabilityCheck;
     }
 
     public static double[] getSpawnCoordinates(PlayerEntity player) {

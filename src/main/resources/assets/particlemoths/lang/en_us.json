@@ -15,6 +15,10 @@
     "text.autoconfig.particlemoths.option.movementConfig.yVelocity": "Y Velocity",
     "text.autoconfig.particlemoths.option.movementConfig.zVelocity": "Z Velocity",
     "text.autoconfig.particlemoths.category.spawning": "Spawning",
+    "text.autoconfig.particlemoths.option.mothCount": "Moth Count",
+    "text.autoconfig.particlemoths.option.mothCount.@Tooltip": "Increasing this value will directly increase\nthe amount of moths that spawn.",
+    "text.autoconfig.particlemoths.option.spawnProbability": "Spawn Probability",
+    "text.autoconfig.particlemoths.option.spawnProbability.@Tooltip": "Increasing this value will increase the *chance*\nthat moths will spawn. Even though it only\nincreases the chance, you will see a quite\nobvious increase of moths.",
     "text.autoconfig.particlemoths.option.xSpawnDistance": "X Spawn Distance",
     "text.autoconfig.particlemoths.option.ySpawnDistance": "Y Spawn Distance",
     "text.autoconfig.particlemoths.option.zSpawnDistance": "Z Spawn Distance"

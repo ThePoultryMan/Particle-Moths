@@ -9,15 +9,21 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 public class ParticleMothsConfig implements ConfigData {
     @ConfigEntry.Category("general")
     public boolean spawnMoths = true;
-
     @ConfigEntry.Category("general")
     @ConfigEntry.Gui.Tooltip(count = 2)
     public boolean glowingMoths = false;
-
     @ConfigEntry.Category("general")
     @ConfigEntry.Gui.CollapsibleObject
     public MovementConfig movementConfig = new MovementConfig();
 
+    @ConfigEntry.Category("spawning")
+    @ConfigEntry.Gui.Tooltip
+    @ConfigEntry.BoundedDiscrete(max = 100)
+    public int mothCount = 15;
+    @ConfigEntry.Category("spawning")
+    @ConfigEntry.Gui.Tooltip
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 100)
+    public int spawnProbability = 13;
     @ConfigEntry.Category("spawning")
     public int xSpawnDistance = 30;
     @ConfigEntry.Category("spawning")
