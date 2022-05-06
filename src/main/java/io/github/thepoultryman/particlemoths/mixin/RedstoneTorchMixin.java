@@ -1,6 +1,7 @@
 package io.github.thepoultryman.particlemoths.mixin;
 
 import io.github.thepoultryman.particlemoths.MothSpawnHelper;
+import io.github.thepoultryman.particlemoths.ParticleMoths;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.RedstoneTorchBlock;
 import net.minecraft.state.property.BooleanProperty;
@@ -21,7 +22,7 @@ public class RedstoneTorchMixin {
 
     @Inject(at = @At("TAIL"), method = "randomDisplayTick")
     public void particlemoths$spawnMothByRedstoneTorch(BlockState state, World world, BlockPos pos, Random random, CallbackInfo ci) {
-        if (state.get(LIT))
+        if (state.get(LIT) && ParticleMoths.CONFIG.allowedBlocks.torches.redstoneTorch)
             MothSpawnHelper.spawnMothByBlock(world, pos);
     }
 }

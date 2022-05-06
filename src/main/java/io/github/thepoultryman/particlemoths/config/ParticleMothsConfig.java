@@ -43,6 +43,9 @@ public class ParticleMothsConfig implements ConfigData {
     public int yBlockSpawnDistance = 3;
     @ConfigEntry.Category("blockSpawning")
     public int zBlockSpawnDistance = 3;
+    @ConfigEntry.Category("blockSpawning")
+    @ConfigEntry.Gui.CollapsibleObject
+    public AllowedBlocks allowedBlocks = new AllowedBlocks();
 
     public static class MovementConfig {
         @ConfigEntry.Gui.Tooltip
@@ -58,5 +61,17 @@ public class ParticleMothsConfig implements ConfigData {
     public static class HeightLimits {
         public int posHeight = 192;
         public int negHeight = -10;
+    }
+
+    public static class AllowedBlocks {
+        @ConfigEntry.Gui.CollapsibleObject
+        public Torches torches = new Torches();
+        public boolean redstoneLamp = true;
+        public boolean candles = true;
+    }
+
+    public static class Torches {
+        public boolean torch = true;
+        public boolean redstoneTorch = true;
     }
 }
