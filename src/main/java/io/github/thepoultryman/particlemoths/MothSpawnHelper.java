@@ -49,7 +49,7 @@ public class MothSpawnHelper {
     }
 
     public static void spawnMothByBlock(World world, BlockPos pos) {
-        if (!ParticleMoths.CONFIG.spawnMoths || random.nextInt(100) < ParticleMoths.CONFIG.blockSpawnProbability) return;
+        if (!ParticleMoths.CONFIG.spawnMoths || random.nextInt(100) > ParticleMoths.CONFIG.blockSpawnProbability) return;
 
         double[] spawnCoordinates = MothSpawnHelper.getBlockSpawnCoordinates(pos);
         double[] velocities = MothSpawnHelper.getVelocity();
