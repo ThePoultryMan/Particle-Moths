@@ -13,6 +13,7 @@ public class MothParticle extends AbstractSlowingParticle {
         super(clientWorld, d, e, f, g, h, i);
         this.sprites = sprites;
         this.setSpriteForAge(this.sprites);
+        this.setColorAlpha(0f);
     }
 
     @Override
@@ -28,11 +29,22 @@ public class MothParticle extends AbstractSlowingParticle {
     public void tick() {
         super.tick();
         this.setSpriteForAge(sprites);
+        float maxAgeFraction = this.maxAge / 5f;
+        if (this.age < maxAgeFraction)
+            this.setColorAlpha(this.colorAlpha + (1f / maxAgeFraction));
+        else if (this.age > maxAgeFraction * 4f) {
+            float calculatedAlpha = this.colorAlpha - (1 / maxAgeFraction);
+            if (calculatedAlpha < 0f || calculatedAlpha > 1f) {
+                this.setColorAlpha(0f);
+            } else {
+                this.setColorAlpha(calculatedAlpha);
+            }
+        }
     }
 
     @Override
     public ParticleTextureSheet getType() {
-        return ParticleTextureSheet.PARTICLE_SHEET_OPAQUE;
+        return ParticleTextureSheet.PARTICLE_SHEET_TRANSLUCENT;
     }
 
     @Environment(EnvType.CLIENT)
