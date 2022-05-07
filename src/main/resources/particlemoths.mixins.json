@@ -5,6 +5,7 @@
     "compatibilityLevel": "JAVA_17",
     "client": [
         "CandleMixin",
+        "LanternMixin",
         "RedstoneLampMixin",
         "RedstoneTorchMixin",
         "TorchMixin"

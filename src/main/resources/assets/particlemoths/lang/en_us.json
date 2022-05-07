@@ -32,5 +32,6 @@
     "text.autoconfig.particlemoths.option.allowedBlocks.torches.torch": "Torch",
     "text.autoconfig.particlemoths.option.allowedBlocks.torches.redstoneTorch": "Redstone Torch",
     "text.autoconfig.particlemoths.option.allowedBlocks.redstoneLamp": "Redstone Lamp",
+    "text.autoconfig.particlemoths.option.allowedBlocks.lanterns": "Lanterns",
     "text.autoconfig.particlemoths.option.allowedBlocks.candles": "Candles"
 }

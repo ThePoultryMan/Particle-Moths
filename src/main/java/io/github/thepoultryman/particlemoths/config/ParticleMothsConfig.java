@@ -67,6 +67,7 @@ public class ParticleMothsConfig implements ConfigData {
         @ConfigEntry.Gui.CollapsibleObject
         public Torches torches = new Torches();
         public boolean redstoneLamp = true;
+        public boolean lanterns = true;
         public boolean candles = true;
     }
 
