@@ -12,12 +12,11 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Random;
 
 public class ParticleMoths implements ClientModInitializer {
 	public static final String MOD_ID = "particlemoths";
@@ -41,16 +40,16 @@ public class ParticleMoths implements ClientModInitializer {
 	}
 
 	private void createMothParticle(MinecraftClient client) {
-		if (client.world == null || !MothSpawnHelper.shouldSpawnMoth()) return;
+		if (client.world == null || !MothSpawnHelper.shouldSpawnMoth(client)) return;
 
 		World world = client.world;
 		PlayerEntity player = client.player;
-		Random random = world.getRandom();
-		double velocity = world.getRandom().nextDouble(-0.75D, 0.75D);
-		double spawnX = player.getX() + random.nextDouble(-30, 30);
-		double spawnY = player.getY() + random.nextDouble(-30, 30);
-		double spawnZ = player.getZ() + random.nextDouble(-30, 30);
+
+		BlockPos spawnPos = MothSpawnHelper.getSpawnCoordinates(player.getBlockPos());
+		if (!MothSpawnHelper.isValidMothSpawn(world, spawnPos, client)) return;
+		double[] velocities = MothSpawnHelper.getVelocity();
+
 		world.addParticle((ParticleEffect) Registry.PARTICLE_TYPE.get(new Identifier("particlemoths:moth")),
-				spawnX, spawnY, spawnZ, velocity, velocity, velocity);
+				spawnPos.getX(), spawnPos.getY(), spawnPos.getZ(), velocities[0], velocities[1], velocities[2]);
 	}
 }
