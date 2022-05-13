@@ -1,4 +1,4 @@
-package io.github.thepoultryman.particlemoths.mixin;
+package io.github.thepoultryman.particlemoths.mixin.torch;
 
 import io.github.thepoultryman.particlemoths.MothSpawnHelper;
 import io.github.thepoultryman.particlemoths.ParticleMoths;
