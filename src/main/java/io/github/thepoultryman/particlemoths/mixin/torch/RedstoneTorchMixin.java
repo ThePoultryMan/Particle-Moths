@@ -22,7 +22,7 @@ public class RedstoneTorchMixin {
 
     @Inject(at = @At("TAIL"), method = "randomDisplayTick")
     public void particlemoths$spawnMothByRedstoneTorch(BlockState state, World world, BlockPos pos, Random random, CallbackInfo ci) {
-        if (state.get(LIT) && ParticleMoths.CONFIG.allowedBlocks.torches.redstoneTorch)
+        if (ParticleMoths.CONFIG.spawnByBlocks && ParticleMoths.CONFIG.allowedBlocks.torches.redstoneTorch && state.get(LIT))
             MothSpawnHelper.spawnMothByBlock(world, pos);
     }
 }

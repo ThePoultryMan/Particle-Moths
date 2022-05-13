@@ -35,6 +35,8 @@ public class ParticleMothsConfig implements ConfigData {
     public HeightLimits heightLimits = new HeightLimits();
 
     @ConfigEntry.Category("blockSpawning")
+    public boolean spawnByBlocks = true;
+    @ConfigEntry.Category("blockSpawning")
     @ConfigEntry.Gui.Tooltip
     public int blockSpawnProbability = 15;
     @ConfigEntry.Category("blockSpawning")

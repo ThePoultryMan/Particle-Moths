@@ -17,7 +17,7 @@ import java.util.Random;
 public class WallTorchMixin {
     @Inject(at = @At("TAIL"), method = "randomDisplayTick")
     public void particlemoths$spawnMothByWallTorch(BlockState state, World world, BlockPos pos, Random random, CallbackInfo ci) {
-        if (ParticleMoths.CONFIG.allowedBlocks.torches.torch)
+        if (ParticleMoths.CONFIG.spawnByBlocks && ParticleMoths.CONFIG.allowedBlocks.torches.torch)
             MothSpawnHelper.spawnMothByBlock(world, pos);
     }
 }
