@@ -57,7 +57,7 @@ public class MothSpawnHelper {
     }
 
     public static void spawnMothByBlock(World world, BlockPos pos) {
-        if (!ParticleMoths.CONFIG.spawnMoths || random.nextInt(100) > ParticleMoths.CONFIG.blockSpawnProbability) return;
+        if (!ParticleMoths.CONFIG.spawnMoths || random.nextFloat(100f) > ParticleMoths.CONFIG.blockSpawnProbability / 2f) return;
 
         BlockPos spawnPos = getBlockSpawnCoordinates(pos);
         if (isInRainOrWater(world, spawnPos)) return;
