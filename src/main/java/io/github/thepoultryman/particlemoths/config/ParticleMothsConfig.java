@@ -1,45 +1,23 @@
 package io.github.thepoultryman.particlemoths.config;
 
-public class ParticleMothsConfig {
-    public boolean spawnMoths = true;
-    public boolean glowingMoths = false;
-    public MovementConfig movementConfig = new MovementConfig();
+import io.github.thepoultryman.cactusconfig.ConfigManager;
+import io.github.thepoultryman.cactusconfig.OptionHolder;
+import net.minecraft.text.TranslatableText;
 
-    public int mothCount = 15;
-    public int spawnProbability = 13;
-    public int xSpawnDistance = 30;
-    public int ySpawnDistance = 30;
-    public int zSpawnDistance = 30;
-    public HeightLimits heightLimits = new HeightLimits();
+public class ParticleMothsConfig extends ConfigManager {
+    public OptionHolder general = new OptionHolder(new TranslatableText("config.particlemoths.tabs.general"), null);
+    private boolean spawnMoths;
 
-    public boolean spawnByBlocks = true;
-    public int blockSpawnProbability = 15;
-    public int xBlockSpawnDistance = 3;
-    public int yBlockSpawnDistance = 3;
-    public int zBlockSpawnDistance = 3;
-    public AllowedBlocks allowedBlocks = new AllowedBlocks();
-
-    public static class MovementConfig {
-        public boolean specificVelocities = true;
-        public int xVelocity = 100;
-        public int yVelocity = 100;
-        public int zVelocity = 100;
+    public ParticleMothsConfig(String fileName) {
+        super(fileName);
     }
 
-    public static class HeightLimits {
-        public int posHeight = 192;
-        public int negHeight = -10;
-    }
+    @Override
+    public void loadConfig() {
+        super.loadConfig();
 
-    public static class AllowedBlocks {
-        public Torches torches = new Torches();
-        public boolean redstoneLamp = true;
-        public boolean lanterns = true;
-        public boolean candles = true;
-    }
-
-    public static class Torches {
-        public boolean torch = true;
-        public boolean redstoneTorch = true;
+        this.getAndSetBooleanOption(general, "general.spawn_moths", true,
+                () -> (boolean) this.getConfigOption("general.spawn_moths"),
+                (spawn) -> this.setConfigOption("general.spawn_moths", spawn));
     }
 }

@@ -1,5 +1,6 @@
 package io.github.thepoultryman.particlemoths;
 
+import io.github.thepoultryman.particlemoths.config.ConfigValues;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.util.Identifier;
@@ -13,8 +14,8 @@ public class MothSpawnHelper {
     private static final Random random = new Random();
 
     public static boolean shouldSpawnMoth(MinecraftClient client) {
-        boolean basicCheck = ParticleMoths.CONFIG.spawnMoths && !client.isPaused();
-        boolean probabilityCheck = random.nextInt(100 - ParticleMoths.CONFIG.mothCount) < ParticleMoths.CONFIG.spawnProbability;
+        boolean basicCheck = ConfigValues.spawnMoths && !client.isPaused();
+        boolean probabilityCheck = random.nextInt(100 - ConfigValues.mothCount) < ConfigValues.spawnProbability;
         return basicCheck && probabilityCheck;
     }
 
@@ -27,7 +28,7 @@ public class MothSpawnHelper {
     }
 
     public static BlockPos getSpawnCoordinates(BlockPos pos) {
-        int[] spawnBound = {ParticleMoths.CONFIG.xSpawnDistance, ParticleMoths.CONFIG.ySpawnDistance, ParticleMoths.CONFIG.zSpawnDistance};
+        int[] spawnBound = {ConfigValues.xSpawnDistance, ConfigValues.ySpawnDistance, ConfigValues.zSpawnDistance};
         double spawnX = pos.getX() + random.nextDouble(-spawnBound[0], spawnBound[0]);
         double spawnY = pos.getY() + random.nextDouble(-spawnBound[1], spawnBound[1]);
         double spawnZ = pos.getZ() + random.nextDouble(-spawnBound[2], spawnBound[2]);
@@ -36,7 +37,7 @@ public class MothSpawnHelper {
     }
 
     public static BlockPos getBlockSpawnCoordinates(BlockPos pos) {
-        int[] spawnBound = {ParticleMoths.CONFIG.xBlockSpawnDistance, ParticleMoths.CONFIG.yBlockSpawnDistance, ParticleMoths.CONFIG.zBlockSpawnDistance};
+        int[] spawnBound = {ConfigValues.xBlockSpawnDistance, ConfigValues.yBlockSpawnDistance, ConfigValues.zBlockSpawnDistance};
         double spawnX = pos.getX() + random.nextDouble(-spawnBound[0], spawnBound[0]);
         double spawnY = pos.getY() + random.nextDouble(-spawnBound[1], spawnBound[1]);
         double spawnZ = pos.getZ() + random.nextDouble(-spawnBound[2], spawnBound[2]);
@@ -45,19 +46,19 @@ public class MothSpawnHelper {
     }
 
     public static double[] getVelocity() {
-        if (!ParticleMoths.CONFIG.movementConfig.specificVelocities) {
-            double velocity = random.nextDouble(-0.75f, 0.75f) * (ParticleMoths.CONFIG.movementConfig.xVelocity / 100f);
+        if (!ConfigValues.MovementConfig.specificVelocities) {
+            double velocity = random.nextDouble(-0.75f, 0.75f) * (ConfigValues.MovementConfig.xVelocity / 100f);
             return new double[] {velocity, velocity, velocity};
         } else {
-            double velocityX = random.nextDouble(-0.75f, 0.75f) * (ParticleMoths.CONFIG.movementConfig.xVelocity / 100f);
-            double velocityY = random.nextDouble(-0.75f, 0.75f) * (ParticleMoths.CONFIG.movementConfig.yVelocity / 100f);
-            double velocityZ = random.nextDouble(-0.75f, 0.75f) * (ParticleMoths.CONFIG.movementConfig.zVelocity / 100f);
+            double velocityX = random.nextDouble(-0.75f, 0.75f) * (ConfigValues.MovementConfig.xVelocity / 100f);
+            double velocityY = random.nextDouble(-0.75f, 0.75f) * (ConfigValues.MovementConfig.yVelocity / 100f);
+            double velocityZ = random.nextDouble(-0.75f, 0.75f) * (ConfigValues.MovementConfig.zVelocity / 100f);
             return new double[] {velocityX, velocityY, velocityZ};
         }
     }
 
     public static void spawnMothByBlock(World world, BlockPos pos) {
-        if (!ParticleMoths.CONFIG.spawnMoths || random.nextFloat(100f) > ParticleMoths.CONFIG.blockSpawnProbability / 2f) return;
+        if (!ConfigValues.spawnMoths || random.nextFloat(100f) > ConfigValues.blockSpawnProbability / 2f) return;
 
         BlockPos spawnPos = getBlockSpawnCoordinates(pos);
         if (isInRainOrWater(world, spawnPos)) return;
@@ -72,6 +73,6 @@ public class MothSpawnHelper {
     }
 
     public static boolean isWithinHeightLimits(int yLevel) {
-        return yLevel >= ParticleMoths.CONFIG.heightLimits.negHeight && yLevel <= ParticleMoths.CONFIG.heightLimits.posHeight;
+        return yLevel >= ConfigValues.HeightLimits.negHeight && yLevel <= ConfigValues.HeightLimits.posHeight;
     }
 }

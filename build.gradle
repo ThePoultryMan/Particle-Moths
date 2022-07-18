@@ -37,6 +37,10 @@ repositories {
 		name = 'Gegy'
 		url = 'https://maven.gegy.dev'
 	}
+
+	maven {
+		url = 'https://repsy.io/mvn/thepoultryman/cactus-config'
+	}
 }
 
 dependencies {
@@ -52,6 +56,8 @@ dependencies {
 
 	modImplementation("com.terraformersmc:modmenu:${project.mod_menu_version}")
 	include modImplementation("dev.lambdaurora:spruceui:${project.spruceui_version}")
+
+	include modImplementation('io.github.thepoultryman:cactus-config:0.1.0-beta.3')
 }
 
 processResources {

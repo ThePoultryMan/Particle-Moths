@@ -19,14 +19,14 @@ import org.slf4j.LoggerFactory;
 public class ParticleMoths implements ClientModInitializer {
 	public static final String MOD_ID = "particlemoths";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-
-	public static ParticleMothsConfig CONFIG;
-
 	public static final DefaultParticleType MOTH = FabricParticleTypes.simple();
+
+	public static final ParticleMothsConfig CONFIG = new ParticleMothsConfig("particle-moths");
 
 	@Override
 	public void onInitializeClient() {
 		LOGGER.info("Initializing (Particle) Moths");
+		CONFIG.loadConfig();
 
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(MOD_ID, "moth"), MOTH);
 		ParticleFactoryRegistry.getInstance().register(ParticleMoths.MOTH, MothParticle.Factory::new);
