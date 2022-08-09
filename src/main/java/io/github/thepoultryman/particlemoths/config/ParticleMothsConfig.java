@@ -91,6 +91,31 @@ public class ParticleMothsConfig extends ConfigManager {
         return true;
     }
 
+    @Override
+    public void reset() {
+        this.spawnMoths(true);
+        this.setGlowingMoths(false);
+        this.useSpecificVelocities(true);
+        this.setVelocity("x", 100D);
+        this.setVelocity("y", 100D);
+        this.setVelocity("z", 100D);
+        this.setMothCount(15D);
+        this.setSpawnProbability(13D);
+        this.setSpawnDistance("x", 30);
+        this.setSpawnDistance("y", 30);
+        this.setSpawnDistance("z", 30);
+        this.setHeightLimit("neg", -10);
+        this.setHeightLimit("pos", 192);
+        this.spawnByBlocks(true);
+        this.setBlockSpawnProbability(15D);
+        this.setBlockSpawnDistance("x", 3);
+        this.setBlockSpawnDistance("y", 3);
+        this.setBlockSpawnDistance("z", 3);
+        for (Map.Entry<String, Boolean> entry : allowedBlocks.entrySet()) {
+            this.setAllowedBlock(entry.getKey(), true);
+        }
+    }
+
     private void spawnMoths(boolean spawn) {
         this.spawnMoths = spawn;
         this.setConfigOption("general.spawn_moths", spawn);
