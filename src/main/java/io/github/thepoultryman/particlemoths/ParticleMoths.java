@@ -21,7 +21,7 @@ public class ParticleMoths implements ClientModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static final DefaultParticleType MOTH = FabricParticleTypes.simple();
 
-	public static final ParticleMothsConfig CONFIG = new ParticleMothsConfig("particle-moths");
+	public static final ParticleMothsConfig CONFIG = new ParticleMothsConfig("particle-moths", false);
 
 	@Override
 	public void onInitializeClient() {

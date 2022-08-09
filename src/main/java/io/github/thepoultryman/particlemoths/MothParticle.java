@@ -1,6 +1,5 @@
 package io.github.thepoultryman.particlemoths;
 
-import io.github.thepoultryman.particlemoths.config.ConfigValues;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.particle.*;
@@ -19,7 +18,7 @@ public class MothParticle extends AbstractSlowingParticle {
 
     @Override
     protected int getBrightness(float tint) {
-        if (!ConfigValues.glowingMoths)
+        if (!ParticleMoths.CONFIG.glowingMoths)
             return super.getBrightness(tint);
         else {
             return 240;

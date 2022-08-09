@@ -1,7 +1,7 @@
 package io.github.thepoultryman.particlemoths.mixin;
 
 import io.github.thepoultryman.particlemoths.MothSpawnHelper;
-import io.github.thepoultryman.particlemoths.config.ConfigValues;
+import io.github.thepoultryman.particlemoths.ParticleMoths;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LanternBlock;
@@ -20,7 +20,7 @@ public abstract class LanternMixin extends Block {
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         super.randomDisplayTick(state, world, pos, random);
-        if (ConfigValues.spawnByBlocks && ConfigValues.AllowedBlocks.lanterns)
+        if (ParticleMoths.CONFIG.spawnByBlocks && ParticleMoths.CONFIG.allowedBlocks.get("lanterns"))
             MothSpawnHelper.spawnMothByBlock(world, pos);
     }
 }
