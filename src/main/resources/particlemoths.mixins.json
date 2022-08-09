@@ -7,10 +7,12 @@
         "CandleMixin",
         "LanternMixin",
         "RedstoneLampMixin",
-        "RedstoneTorchMixin",
-        "TorchMixin"
+        "torch.RedstoneTorchMixin",
+        "torch.RedstoneWallTorchMixin",
+        "torch.TorchMixin",
+        "torch.WallTorchMixin"
     ],
     "injectors": {
         "defaultRequire": 1
-  }
+    }
 }

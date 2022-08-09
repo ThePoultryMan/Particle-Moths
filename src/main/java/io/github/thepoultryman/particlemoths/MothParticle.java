@@ -27,7 +27,12 @@ public class MothParticle extends AbstractSlowingParticle {
 
     @Override
     public void tick() {
+        if (this.age == this.getMaxAge() / 2)
+            this.setVelocity(this.getVelocityForAge(this.velocityX),
+                    this.getVelocityForAge(this.velocityY),
+                    this.getVelocityForAge(this.velocityZ));
         super.tick();
+
         this.setSpriteForAge(sprites);
         float maxAgeFraction = this.maxAge / 5f;
         if (this.age < maxAgeFraction)
@@ -45,6 +50,10 @@ public class MothParticle extends AbstractSlowingParticle {
     @Override
     public ParticleTextureSheet getType() {
         return ParticleTextureSheet.PARTICLE_SHEET_TRANSLUCENT;
+    }
+
+    private double getVelocityForAge(double velocity) {
+        return velocity + this.random.nextFloat(-0.15f, 0.15f);
     }
 
     @Environment(EnvType.CLIENT)

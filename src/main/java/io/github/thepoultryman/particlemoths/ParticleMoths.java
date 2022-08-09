@@ -1,8 +1,6 @@
 package io.github.thepoultryman.particlemoths;
 
 import io.github.thepoultryman.particlemoths.config.ParticleMothsConfig;
-import me.shedaniel.autoconfig.AutoConfig;
-import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
@@ -21,17 +19,14 @@ import org.slf4j.LoggerFactory;
 public class ParticleMoths implements ClientModInitializer {
 	public static final String MOD_ID = "particlemoths";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-
-	public static ParticleMothsConfig CONFIG;
-
 	public static final DefaultParticleType MOTH = FabricParticleTypes.simple();
+
+	public static final ParticleMothsConfig CONFIG = new ParticleMothsConfig("particle-moths", false);
 
 	@Override
 	public void onInitializeClient() {
 		LOGGER.info("Initializing (Particle) Moths");
-
-		AutoConfig.register(ParticleMothsConfig.class, Toml4jConfigSerializer::new);
-		CONFIG = AutoConfig.getConfigHolder(ParticleMothsConfig.class).getConfig();
+		CONFIG.loadConfig();
 
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(MOD_ID, "moth"), MOTH);
 		ParticleFactoryRegistry.getInstance().register(ParticleMoths.MOTH, MothParticle.Factory::new);
