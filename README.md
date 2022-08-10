@@ -21,3 +21,24 @@ Moths also have a chance to spawn by certain light-emitting blocks. Similarly to
   * Redstone Lamps
   * Candles
 </details>
+
+## Configuration
+
+Below are all the settings available, which give the user almost complete control over the mod.
+
+<details>
+<summary>All Configuration Settings</summary>
+
+* Spawn Moths
+* Glowing Moths
+* Specific Velocities - If true, the speed of the Moths will be calculated individually on each axis.
+* (X, Y, Z) Velocity - The speed moths will travel at on each axis.
+* Moth Count
+* Spawn Probability - The chance that a moth will spawn.
+* (X, Y, Z) Spawn Distance - The uppermost distance moths can spawn from the player.
+* (Negative & Positive) Height Limit - The lowermost and uppermost that moths can spawn.
+* Spawn By Blocks
+* Block Spawn Probability
+* (X, Y, Z) Block Spawn Distance - The uppermost distance that moths can spawn from blocks.
+* [Toggles for the blocks that moths can spawn at. (List seen above.)]
+</details>
