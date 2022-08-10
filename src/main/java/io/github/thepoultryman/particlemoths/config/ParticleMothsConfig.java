@@ -2,21 +2,21 @@ package io.github.thepoultryman.particlemoths.config;
 
 import io.github.thepoultryman.cactusconfig.ConfigManager;
 import io.github.thepoultryman.cactusconfig.OptionHolder;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class ParticleMothsConfig extends ConfigManager {
-    public OptionHolder generalTab = new OptionHolder(new TranslatableText("config.particlemoths.tabs.general"), null);
+    public OptionHolder generalTab = new OptionHolder(Text.translatable("config.particlemoths.tabs.general"), null);
     public boolean spawnMoths;
     public boolean glowingMoths;
     public boolean specificVelocities;
     public double xVelocity;
     public double yVelocity;
     public double zVelocity;
-    public OptionHolder spawningTab = new OptionHolder(new TranslatableText("config.particlemoths.tabs.spawning"), null);
+    public OptionHolder spawningTab = new OptionHolder(Text.translatable("config.particlemoths.tabs.spawning"), null);
     public double mothCount;
     public double spawnProbability;
     public int xSpawnDistance;
@@ -24,7 +24,7 @@ public class ParticleMothsConfig extends ConfigManager {
     public int zSpawnDistance;
     public int negHeightLimit;
     public int posHeightLimit;
-    public OptionHolder blockSpawningTab = new OptionHolder(new TranslatableText("config.particlemoths.tabs.block_spawning"), null);
+    public OptionHolder blockSpawningTab = new OptionHolder(Text.translatable("config.particlemoths.tabs.block_spawning"), null);
     public boolean spawnByBlocks;
     public double blockSpawnProbability;
     public int xBlockSpawnDistance;

@@ -53,7 +53,7 @@ public class MothParticle extends AbstractSlowingParticle {
     }
 
     private double getVelocityForAge(double velocity) {
-        return velocity + this.random.nextFloat(-0.15f, 0.15f);
+        return velocity + (MothHelper.floatRange(-0.15f, 0.15f) / 100f);
     }
 
     @Environment(EnvType.CLIENT)
