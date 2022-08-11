@@ -16,7 +16,8 @@ Set<String> apiModules = [
 		'fabric-api-base',
         'fabric-lifecycle-events-v1',
 		'fabric-particles-v1',
-		'fabric-registry-sync-v0'
+		'fabric-registry-sync-v0',
+		'fabric-networking-api-v1'
 ]
 
 repositories {
