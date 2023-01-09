@@ -2,9 +2,9 @@ package io.github.thepoultryman.particlemoths;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.particle.ParticleEffect;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -63,7 +63,7 @@ public class MothSpawnHelper {
         if (isInRainOrWater(world, spawnPos)) return;
         double[] velocities = MothSpawnHelper.getVelocity();
 
-        world.addParticle((ParticleEffect) Registry.PARTICLE_TYPE.get(new Identifier("particlemoths:moth")),
+        world.addParticle((ParticleEffect) Registries.PARTICLE_TYPE.get(new Identifier("particlemoths:moth")),
                 spawnPos.getX(), spawnPos.getY(), spawnPos.getZ(), velocities[0] / 5f, velocities[1] / 5f, velocities[2] / 5f);
     }
 
