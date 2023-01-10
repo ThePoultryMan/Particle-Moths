@@ -42,3 +42,13 @@ Below are all the settings available, which give the user almost complete contro
 * (X, Y, Z) Block Spawn Distance - The uppermost distance that moths can spawn from blocks.
 * [Toggles for the blocks that moths can spawn at. (List seen above.)]
 </details>
+
+<details>
+<summary><h2>Gifs</h2></summary>
+
+_Configuration: 100 Block Spawn Probability_  
+![100_block_probability_example](https://user-images.githubusercontent.com/66281330/185761252-750b02e8-a14f-4de8-a3bb-ddb62463033e.gif)
+
+_Configuration: Glowing moths are on. Moth Count and Spawn Probability are both 50._  
+![cave_example](https://user-images.githubusercontent.com/66281330/185761484-46e25fa1-4239-489a-af7c-6f22f339e92a.gif)
+</details>
