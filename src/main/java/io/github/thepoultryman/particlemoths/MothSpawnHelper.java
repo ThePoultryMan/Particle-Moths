@@ -28,18 +28,18 @@ public class MothSpawnHelper {
 
     public static BlockPos getSpawnCoordinates(BlockPos pos) {
         int[] spawnBound = {ParticleMoths.CONFIG.xSpawnDistance, ParticleMoths.CONFIG.ySpawnDistance, ParticleMoths.CONFIG.zSpawnDistance};
-        double spawnX = pos.getX() + random.nextDouble(-spawnBound[0], spawnBound[0]);
-        double spawnY = pos.getY() + random.nextDouble(-spawnBound[1], spawnBound[1]);
-        double spawnZ = pos.getZ() + random.nextDouble(-spawnBound[2], spawnBound[2]);
+        int spawnX = pos.getX() + random.nextInt(-spawnBound[0], spawnBound[0]);
+        int spawnY = pos.getY() + random.nextInt(-spawnBound[1], spawnBound[1]);
+        int spawnZ = pos.getZ() + random.nextInt(-spawnBound[2], spawnBound[2]);
 
         return new BlockPos(spawnX, spawnY, spawnZ);
     }
 
     public static BlockPos getBlockSpawnCoordinates(BlockPos pos) {
         int[] spawnBound = {ParticleMoths.CONFIG.xBlockSpawnDistance, ParticleMoths.CONFIG.yBlockSpawnDistance, ParticleMoths.CONFIG.zBlockSpawnDistance};
-        double spawnX = pos.getX() + random.nextDouble(-spawnBound[0], spawnBound[0]);
-        double spawnY = pos.getY() + random.nextDouble(-spawnBound[1], spawnBound[1]);
-        double spawnZ = pos.getZ() + random.nextDouble(-spawnBound[2], spawnBound[2]);
+        int spawnX = pos.getX() + random.nextInt(-spawnBound[0], spawnBound[0]);
+        int spawnY = pos.getY() + random.nextInt(-spawnBound[1], spawnBound[1]);
+        int spawnZ = pos.getZ() + random.nextInt(-spawnBound[2], spawnBound[2]);
 
         return new BlockPos(spawnX, spawnY, spawnZ);
     }
