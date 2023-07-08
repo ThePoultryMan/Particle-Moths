@@ -24,7 +24,7 @@ public abstract class RedstoneLampMixin extends Block {
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, RandomGenerator random) {
         super.randomDisplayTick(state, world, pos, random);
-        if (ParticleMoths.CONFIG.spawnByBlocks && ParticleMoths.CONFIG.allowedBlocks.get("redstone_lamps") && state.get(LIT))
+        if (ParticleMoths.CONFIG.spawnByBlocks && ParticleMoths.CONFIG.redstoneLamps && state.get(LIT))
             MothSpawnHelper.spawnMothByBlock(world, pos);
     }
 }

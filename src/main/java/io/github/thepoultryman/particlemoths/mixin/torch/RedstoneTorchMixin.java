@@ -21,7 +21,7 @@ public class RedstoneTorchMixin {
 
     @Inject(at = @At("TAIL"), method = "randomDisplayTick")
     public void particlemoths$spawnMothByRedstoneTorch(BlockState state, World world, BlockPos pos, RandomGenerator random, CallbackInfo ci) {
-        if (ParticleMoths.CONFIG.spawnByBlocks && ParticleMoths.CONFIG.allowedBlocks.get("redstone_torches") && state.get(LIT))
+        if (ParticleMoths.CONFIG.spawnByBlocks && ParticleMoths.CONFIG.redstoneTorches && state.get(LIT))
             MothSpawnHelper.spawnMothByBlock(world, pos);
     }
 }

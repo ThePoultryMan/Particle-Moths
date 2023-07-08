@@ -21,7 +21,7 @@ public class CandleMixin {
 
     @Inject(at = @At("TAIL"), method = "randomDisplayTick")
     private void particlemoths$spawnMothByCandle(BlockState state, World world, BlockPos pos, RandomGenerator random, CallbackInfo ci) {
-        if (ParticleMoths.CONFIG.spawnByBlocks && ParticleMoths.CONFIG.allowedBlocks.get("candles") && state.get(LIT))
+        if (ParticleMoths.CONFIG.spawnByBlocks && ParticleMoths.CONFIG.candles && state.get(LIT))
             MothSpawnHelper.spawnMothByBlock(world, pos);
     }
 }

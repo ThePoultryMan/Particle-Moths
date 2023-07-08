@@ -19,7 +19,7 @@ public abstract class LanternMixin extends Block {
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, RandomGenerator random) {
         super.randomDisplayTick(state, world, pos, random);
-        if (ParticleMoths.CONFIG.spawnByBlocks && ParticleMoths.CONFIG.allowedBlocks.get("lanterns"))
+        if (ParticleMoths.CONFIG.spawnByBlocks && ParticleMoths.CONFIG.lanterns)
             MothSpawnHelper.spawnMothByBlock(world, pos);
     }
 }
