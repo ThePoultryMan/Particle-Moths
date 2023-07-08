@@ -11,6 +11,6 @@ public class ModMenuIntegration implements ModMenuApi {
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
         return (ConfigScreenFactory<Screen>) parent -> new ConfigScreen(Text.translatable("config.particlemoths.title"), parent, ParticleMoths.CONFIG,
-                ParticleMoths.CONFIG.generalTab, ParticleMoths.CONFIG.spawningTab, ParticleMoths.CONFIG.blockSpawningTab);
+                ParticleMoths.CONFIG.getOptionHolders());
     }
 }

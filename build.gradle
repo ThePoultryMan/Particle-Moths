@@ -57,7 +57,7 @@ dependencies {
 
 	modImplementation("com.terraformersmc:modmenu:${project.mod_menu_version}")
 
-	include modImplementation("io.github.thepoultryman:cactus-config:${project.cactus_config_version}")
+	include modImplementation("io.github.thepoultryman:cactus-config:${project.cactus_config_version}+knot+${project.minecraft_version}")
 }
 
 processResources {

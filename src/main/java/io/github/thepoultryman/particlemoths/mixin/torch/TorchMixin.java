@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class TorchMixin {
     @Inject(at = @At("TAIL"), method = "randomDisplayTick")
     public void particlemoths$spawnMothByTorch(BlockState state, World world, BlockPos pos, RandomGenerator random, CallbackInfo ci) {
-        if (ParticleMoths.CONFIG.spawnByBlocks && ParticleMoths.CONFIG.allowedBlocks.get("torches"))
+        if (ParticleMoths.CONFIG.spawnByBlocks && ParticleMoths.CONFIG.torches)
             MothSpawnHelper.spawnMothByBlock(world, pos);
     }
 }
