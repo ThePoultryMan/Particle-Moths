@@ -1,8 +1,6 @@
 plugins {
-	id 'fabric-loom' version '0.10-SNAPSHOT'
-	id 'maven-publish'
-	id "org.quiltmc.quilt-mappings-on-loom" version "4.2.0"
-	id "io.github.p03w.machete" version "1.0.11"
+	id "fabric-loom" version "1.5-SNAPSHOT"
+	id "maven-publish"
 }
 
 sourceCompatibility = JavaVersion.VERSION_17
@@ -13,36 +11,31 @@ version = project.mod_version
 group = project.maven_group
 
 Set<String> apiModules = [
-		'fabric-api-base',
-        'fabric-lifecycle-events-v1',
-		'fabric-particles-v1',
-		'fabric-registry-sync-v0',
-		'fabric-networking-api-v1'
+		"fabric-api-base",
+        "fabric-lifecycle-events-v1",
+		"fabric-particles-v1",
+		"fabric-registry-sync-v0",
+		"fabric-networking-api-v1",
 ]
 
 repositories {
 	maven {
-		name = 'Quilt'
-		url = 'https://maven.quiltmc.org/repository/release'
+		name "Quilt"
+		url "https://maven.quiltmc.org/repository/release"
 	}
 	maven {
-		name = 'Quilt Snapshots'
-		url = 'https://maven.quiltmc.org/repository/snapshot'
-	}
-
-	maven {
-		name = "TerraformersMC"
-		url = "https://maven.terraformersmc.com/releases"
+		name "Quilt Snapshots"
+		url "https://maven.quiltmc.org/repository/snapshot"
 	}
 
 	maven {
-		name = 'Gegy'
-		url = 'https://maven.gegy.dev'
+		name "TerraformersMC"
+		url "https://maven.terraformersmc.com/releases"
 	}
 
 	maven {
-		name = 'Cactus Config'
-		url = 'https://dl.cloudsmith.io/public/carbon-toast/cactus-config/maven/'
+		name "Xander Maven"
+		url "https://maven.isxander.dev/releases"
 	}
 }
 
@@ -55,9 +48,9 @@ dependencies {
 		include modImplementation(fabricApi.module(it, project.fabric_version))
 	}
 
-	modImplementation("com.terraformersmc:modmenu:${project.mod_menu_version}")
+	modImplementation "com.terraformersmc:modmenu:${project.mod_menu_version}"
 
-	include modImplementation("io.github.thepoultryman:cactus-config:${project.cactus_config_version}+knot+${project.minecraft_version}")
+	modImplementation "dev.isxander.yacl:yet-another-config-lib-fabric:${project.yacl_version}"
 }
 
 processResources {

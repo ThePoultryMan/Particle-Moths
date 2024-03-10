@@ -4,7 +4,7 @@
     "cactus_config.option.general.spawnMoths": "Spawn Moths",
     "cactus_config.option.desc.general.spawnMoths": "Whether moths will spawn in your world.",
     "cactus_config.option.general.glowingMoths": "Glowing Moths",
-    "cactus_config.option.desc.general.glowingMoths": "The Moths (particles) will be forced to always be full brightness.",
+    "cactus_config.option.desc.general.glowingMoths": "The moth particles will be displayed at full brightness.",
     "cactus_config.separator.movementConfig": "Movement Config",
     "cactus_config.option.general.specificVelocities": "XYZ Specific Velocity (Read Tooltip)",
     "cactus_config.option.desc.general.specificVelocities": "If set to true, the velocity for each axis will be set based on the values below. If set to false, all of the velocities will be set based on the 'X Velocity' value.",

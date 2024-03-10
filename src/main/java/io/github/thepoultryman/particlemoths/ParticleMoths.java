@@ -22,12 +22,12 @@ public class ParticleMoths implements ClientModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static final DefaultParticleType MOTH = FabricParticleTypes.simple();
 
-	public static final ParticleMothsConfig CONFIG = new ParticleMothsConfig("particle-moths", false);
+	public static final ParticleMothsConfig CONFIG = new ParticleMothsConfig();
 
 	@Override
 	public void onInitializeClient() {
 		LOGGER.info("Initializing (Particle) Moths");
-		CONFIG.loadConfig();
+		CONFIG.load();
 
 		Registry.register(Registries.PARTICLE_TYPE, new Identifier(MOD_ID, "moth"), MOTH);
 		ParticleFactoryRegistry.getInstance().register(ParticleMoths.MOTH, MothParticle.Factory::new);
