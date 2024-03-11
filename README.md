@@ -43,8 +43,9 @@ Below are all the settings available, which give the user almost complete contro
 * [Toggles for the blocks that moths can spawn at. (List seen above.)]
 </details>
 
+## Gifs
 <details>
-<summary><h2>Gifs</h2></summary>
+<summary>Show/Hide</summary>
 
 _Configuration: 100 Block Spawn Probability_  
 ![100_block_probability_example](https://user-images.githubusercontent.com/66281330/185761252-750b02e8-a14f-4de8-a3bb-ddb62463033e.gif)
