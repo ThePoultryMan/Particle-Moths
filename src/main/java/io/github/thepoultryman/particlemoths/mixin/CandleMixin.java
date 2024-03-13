@@ -1,7 +1,7 @@
 package io.github.thepoultryman.particlemoths.mixin;
 
 import io.github.thepoultryman.particlemoths.MothSpawnHelper;
-import io.github.thepoultryman.particlemoths.ParticleMoths;
+import io.github.thepoultryman.particlemoths.config.ParticleMothsConfig;
 import net.minecraft.block.AbstractCandleBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.state.property.BooleanProperty;
@@ -21,7 +21,7 @@ public class CandleMixin {
 
     @Inject(at = @At("TAIL"), method = "randomDisplayTick")
     private void particlemoths$spawnMothByCandle(BlockState state, World world, BlockPos pos, RandomGenerator random, CallbackInfo ci) {
-        if (ParticleMoths.CONFIG.spawnByBlocks && ParticleMoths.CONFIG.candles && state.get(LIT))
+        if (ParticleMothsConfig.spawnMoths(ParticleMothsConfig.MothSpawnMode.BLOCKS) && ParticleMothsConfig.candles && state.get(LIT))
             MothSpawnHelper.spawnMothByBlock(world, pos);
     }
 }

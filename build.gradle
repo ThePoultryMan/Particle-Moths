@@ -28,14 +28,21 @@ repositories {
 		url "https://maven.quiltmc.org/repository/snapshot"
 	}
 
-	maven {
-		name "TerraformersMC"
-		url "https://maven.terraformersmc.com/releases"
+	exclusiveContent {
+		forRepository {
+			maven {
+				name "Modrinth"
+				url "https://api.modrinth.com/maven"
+			}
+		}
+		filter {
+			includeGroup "maven.modrinth"
+		}
 	}
 
 	maven {
-		name "Xander Maven"
-		url "https://maven.isxander.dev/releases"
+		name "TerraformersMC"
+		url "https://maven.terraformersmc.com/releases"
 	}
 }
 
@@ -50,7 +57,7 @@ dependencies {
 
 	modImplementation "com.terraformersmc:modmenu:${project.mod_menu_version}"
 
-	modImplementation "dev.isxander.yacl:yet-another-config-lib-fabric:${project.yacl_version}"
+	modImplementation include("maven.modrinth:midnightlib:${project.midnightlib_version}")
 }
 
 processResources {

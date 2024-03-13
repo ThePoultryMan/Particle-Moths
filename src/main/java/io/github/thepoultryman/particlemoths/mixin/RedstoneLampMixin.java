@@ -1,7 +1,7 @@
 package io.github.thepoultryman.particlemoths.mixin;
 
 import io.github.thepoultryman.particlemoths.MothSpawnHelper;
-import io.github.thepoultryman.particlemoths.ParticleMoths;
+import io.github.thepoultryman.particlemoths.config.ParticleMothsConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.RedstoneLampBlock;
@@ -24,7 +24,7 @@ public abstract class RedstoneLampMixin extends Block {
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, RandomGenerator random) {
         super.randomDisplayTick(state, world, pos, random);
-        if (ParticleMoths.CONFIG.spawnByBlocks && ParticleMoths.CONFIG.redstoneLamps && state.get(LIT))
+        if (ParticleMothsConfig.spawnMoths(ParticleMothsConfig.MothSpawnMode.BLOCKS) && ParticleMothsConfig.redstoneLamps && state.get(LIT))
             MothSpawnHelper.spawnMothByBlock(world, pos);
     }
 }

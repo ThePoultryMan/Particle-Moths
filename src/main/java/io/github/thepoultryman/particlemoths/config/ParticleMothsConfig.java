@@ -1,231 +1,82 @@
 package io.github.thepoultryman.particlemoths.config;
 
-import dev.isxander.yacl3.api.*;
-import dev.isxander.yacl3.api.controller.DoubleSliderControllerBuilder;
-import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
-import dev.isxander.yacl3.config.v2.api.SerialEntry;
-import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
-import dev.isxander.yacl3.impl.controller.IntegerFieldControllerBuilderImpl;
-import dev.isxander.yacl3.impl.controller.TickBoxControllerBuilderImpl;
-import io.github.thepoultryman.particlemoths.ParticleMoths;
-import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import eu.midnightdust.lib.config.MidnightConfig;
 
-public class ParticleMothsConfig {
-    private static final ConfigClassHandler<ParticleMothsConfig> CONFIG_HANDLER = ConfigClassHandler.createBuilder(ParticleMothsConfig.class)
-            .id(new Identifier(ParticleMoths.MOD_ID, "config"))
-            .serializer(config -> GsonConfigSerializerBuilder.create(config)
-                    .setPath(FabricLoader.getInstance().getConfigDir().resolve(ParticleMoths.MOD_ID + ".json"))
-                    .build())
-            .build();
+public class ParticleMothsConfig extends MidnightConfig {
+    @Entry(category = "general")
+    public static MothSpawnMode spawnMoths = MothSpawnMode.ALL;
+    @Entry(category = "general")
+    public static boolean glowingMoths = false;
+    @Comment(category = "general", centered = true)
+    public static Comment movementConfig;
+    @Entry(category = "general")
+    public static boolean specificVelocities = false;
+    @Entry(category = "general", isSlider = true, min = -500.0, max = 500.0, precision = 1)
+    public static double xVelocity = 100.0;
+    @Entry(category = "general", isSlider = true, min = -500.0, max = 500.0, precision = 1)
+    public static double yVelocity = 100.0;
+    @Entry(category = "general", isSlider = true, min = -500.0, max = 500.0, precision = 1)
+    public static double zVelocity = 100.0;
 
-    @SerialEntry
-    public boolean spawnMoths;
-    @SerialEntry
-    public boolean glowingMoths;
-    @SerialEntry
-    public boolean specificVelocities;
-    @SerialEntry
-    public double xVelocity;
-    @SerialEntry
-    public double yVelocity;
-    @SerialEntry
-    public double zVelocity;
+    @Entry(category = "spawning", isSlider = true, min = 0.0, max = 99.0, precision = 1)
+    public static double mothCount = 15.0;
+    @Entry(category = "spawning", isSlider = true, min = 1.0, max = 100.0, precision = 1)
+    public static double spawnProbability = 13.0;
+    @Comment(category = "spawning", centered = true)
+    public static Comment spawnDistances;
+    @Entry(category = "spawning")
+    public static int xSpawnDistance = 30;
+    @Entry(category = "spawning")
+    public static int ySpawnDistance = 30;
+    @Entry(category = "spawning")
+    public static int zSpawnDistance = 30;
+    @Comment(category = "spawning", centered = true)
+    public static Comment heightLimits;
+    @Entry(category = "spawning")
+    public static int negHeightLimit = -10;
+    @Entry(category = "spawning")
+    public static int posHeightLimit = 192;
 
-    @SerialEntry
-    public double mothCount;
-    @SerialEntry
-    public double spawnProbability;
-    @SerialEntry
-    public int xSpawnDistance;
-    @SerialEntry
-    public int ySpawnDistance;
-    @SerialEntry
-    public int zSpawnDistance;
-    @SerialEntry
-    public int negHeightLimit;
-    @SerialEntry
-    public int posHeightLimit;
+    @Entry(category = "blockSpawning", isSlider = true, min = 2.0, max = 100.0, precision = 1)
+    public static double blockSpawnProbability = 15.0;
+    @Entry(category = "blockSpawning")
+    public static int xBlockSpawnDistance = 3;
+    @Entry(category = "blockSpawning")
+    public static int yBlockSpawnDistance = 3;
+    @Entry(category = "blockSpawning")
+    public static int zBlockSpawnDistance = 3;
+    @Comment(category = "blockSpawning", centered = true)
+    public static Comment allowedBlocks;
+    @Entry(category = "blockSpawning")
+    public static boolean torches = true;
+    @Entry(category = "blockSpawning")
+    public static boolean redstoneTorches = true;
+    @Entry(category = "blockSpawning")
+    public static boolean redstoneLamps = true;
+    @Entry(category = "blockSpawning")
+    public static boolean lanterns = true;
+    @Entry(category = "blockSpawning")
+    public static boolean candles = true;
 
-    @SerialEntry
-    public boolean spawnByBlocks;
-    @SerialEntry
-    public double blockSpawnProbability;
-    @SerialEntry
-    public int xBlockSpawnDistance;
-    @SerialEntry
-    public int yBlockSpawnDistance;
-    @SerialEntry
-    public int zBlockSpawnDistance;
-    @SerialEntry
-    public boolean torches;
-    @SerialEntry
-    public boolean redstoneTorches;
-    @SerialEntry
-    public boolean redstoneLamps;
-    @SerialEntry
-    public boolean lanterns;
-    @SerialEntry
-    public boolean candles;
-
-    public Screen getScreen(Screen parent) {
-        return YetAnotherConfigLib.createBuilder()
-                .title(Text.translatable("config.particlemoths.title"))
-                .category(ConfigCategory.createBuilder()
-                        .name(Text.translatable("config.particlemoths.tabs.general"))
-                        .option(Option.<Boolean>createBuilder()
-                                .name(Text.translatable("cactus_config.option.general.spawnMoths"))
-                                .description(OptionDescription.of(Text.translatable("cactus_config.option.desc.general.spawnMoths")))
-                                .binding(true, () -> this.spawnMoths, (value) -> this.spawnMoths = value)
-                                .controller(TickBoxControllerBuilderImpl::new)
-                                .build())
-                        .option(Option.<Boolean>createBuilder()
-                                .name(Text.translatable("cactus_config.option.general.glowingMoths"))
-                                .description(OptionDescription.of(Text.translatable("cactus_config.option.desc.general.glowingMoths")))
-                                .binding(false, () -> this.glowingMoths, (value) -> this.glowingMoths = value)
-                                .controller(TickBoxControllerBuilderImpl::new)
-                                .build())
-                        .group(OptionGroup.createBuilder()
-                                .name(Text.translatable("cactus_config.separator.movementConfig"))
-                                .option(Option.<Boolean>createBuilder()
-                                        .name(Text.translatable("cactus_config.option.general.specificVelocities"))
-                                        .description(OptionDescription.of(Text.translatable("cactus_config.option.desc.general.specificVelocities")))
-                                        .binding(false, () -> this.specificVelocities, (value) -> this.specificVelocities = value)
-                                        .controller(TickBoxControllerBuilderImpl::new)
-                                        .build())
-                                .option(Option.<Double>createBuilder()
-                                        .name(Text.translatable("cactus_config.option.general.xVelocity"))
-                                        .binding(100.0, () -> this.xVelocity, (value) -> this.xVelocity = value)
-                                        .controller(option -> DoubleSliderControllerBuilder.create(option).range(-500.0, 500.0).step(1.0))
-                                        .build())
-                                .option(Option.<Double>createBuilder()
-                                        .name(Text.translatable("cactus_config.option.general.yVelocity"))
-                                        .binding(100.0, () -> this.yVelocity, (value) -> this.yVelocity = value)
-                                        .controller(option -> DoubleSliderControllerBuilder.create(option).range(-500.0, 500.0).step(1.0))
-                                        .build())
-                                .option(Option.<Double>createBuilder()
-                                        .name(Text.translatable("cactus_config.option.general.zVelocity"))
-                                        .binding(100.0, () -> this.zVelocity, (value) -> this.zVelocity = value)
-                                        .controller(option -> DoubleSliderControllerBuilder.create(option).range(-500.0, 500.0).step(1.0))
-                                        .build())
-                                .build())
-                        .build())
-                .category(ConfigCategory.createBuilder()
-                        .name(Text.translatable("config.particlemoths.tabs.spawning"))
-                        .option(Option.<Double>createBuilder()
-                                .name(Text.translatable("cactus_config.option.spawning.mothCount"))
-                                .description(OptionDescription.of(Text.translatable("cactus_config.option.desc.spawning.mothCount")))
-                                .binding(15.0, () -> this.mothCount, (value) -> this.mothCount = value)
-                                .controller(option -> DoubleSliderControllerBuilder.create(option).range(0.0, 99.0).step(1.0))
-                                .build())
-                        .option(Option.<Double>createBuilder()
-                                .name(Text.translatable("cactus_config.option.spawning.spawnProbability"))
-                                .description(OptionDescription.of(Text.translatable("cactus_config.option.desc.spawning.spawnProbability")))
-                                .binding(13.0, () -> this.spawnProbability, (value) -> this.spawnProbability = value)
-                                .controller(option -> DoubleSliderControllerBuilder.create(option).range(1.0, 100.0).step(1.0))
-                                .build())
-                        .group(OptionGroup.createBuilder()
-                                .name(Text.translatable("cactus_config.separator.spawnDistances"))
-                                .option(Option.<Integer>createBuilder()
-                                        .name(Text.translatable("cactus_config.option.spawning.xSpawnDistance"))
-                                        .binding(30, () -> this.xSpawnDistance, (value) -> this.xSpawnDistance = value)
-                                        .controller(IntegerFieldControllerBuilderImpl::new)
-                                        .build())
-                                .option(Option.<Integer>createBuilder()
-                                        .name(Text.translatable("cactus_config.option.spawning.ySpawnDistance"))
-                                        .binding(30, () -> this.ySpawnDistance, (value) -> this.ySpawnDistance = value)
-                                        .controller(IntegerFieldControllerBuilderImpl::new)
-                                        .build())
-                                .option(Option.<Integer>createBuilder()
-                                        .name(Text.translatable("cactus_config.option.spawning.zSpawnDistance"))
-                                        .binding(30, () -> this.zSpawnDistance, (value) -> this.zSpawnDistance = value)
-                                        .controller(IntegerFieldControllerBuilderImpl::new)
-                                        .build())
-                                .build())
-                        .group(OptionGroup.createBuilder()
-                                .name(Text.translatable("cactus_config.separator.heightLimits"))
-                                .option(Option.<Integer>createBuilder()
-                                        .name(Text.translatable("cactus_config.option.spawning.negHeightLimit"))
-                                        .binding(-10, () -> this.negHeightLimit, (value) -> this.negHeightLimit = value)
-                                        .controller(IntegerFieldControllerBuilderImpl::new)
-                                        .build())
-                                .option(Option.<Integer>createBuilder()
-                                        .name(Text.translatable("cactus_config.option.spawning.posHeightLimit"))
-                                        .binding(192, () -> this.posHeightLimit, (value) -> this.posHeightLimit = value)
-                                        .controller(IntegerFieldControllerBuilderImpl::new)
-                                        .build())
-                                .build())
-                        .build())
-                .category(ConfigCategory.createBuilder()
-                        .name(Text.translatable("config.particlemoths.tabs.blockSpawning"))
-                        .option(Option.<Boolean>createBuilder()
-                                .name(Text.translatable("cactus_config.option.blockSpawning.spawnByBlocks"))
-                                .binding(true, () -> this.spawnByBlocks, (value) -> this.spawnByBlocks = value)
-                                .controller(TickBoxControllerBuilderImpl::new)
-                                .build())
-                        .option(Option.<Double>createBuilder()
-                                .name(Text.translatable("cactus_config.option.blockSpawning.blockSpawnProbability"))
-                                .description(OptionDescription.of(Text.translatable("cactus_config.option.desc.blockSpawning.blockSpawnProbability")))
-                                .binding(15.0d, () -> this.blockSpawnProbability, (value) -> this.blockSpawnProbability = value)
-                                .controller((option) -> DoubleSliderControllerBuilder.create(option).range(2.0, 100.0d).step(1.0))
-                                .build())
-                        .group(OptionGroup.createBuilder()
-                                .name(Text.translatable("cactus_config.separator.spawnDistances"))
-                                .option(Option.<Integer>createBuilder()
-                                        .name(Text.translatable("cactus_config.option.blockSpawning.xBlockSpawnDistance"))
-                                        .binding(3, () -> this.xBlockSpawnDistance, (value) -> this.xBlockSpawnDistance = value)
-                                        .controller(IntegerFieldControllerBuilderImpl::new)
-                                        .build())
-                                .option(Option.<Integer>createBuilder()
-                                        .name(Text.translatable("cactus_config.option.blockSpawning.yBlockSpawnDistance"))
-                                        .binding(3, () -> this.yBlockSpawnDistance, (value) -> this.yBlockSpawnDistance = value)
-                                        .controller(IntegerFieldControllerBuilderImpl::new)
-                                        .build())
-                                .option(Option.<Integer>createBuilder()
-                                        .name(Text.translatable("cactus_config.option.blockSpawning.zBlockSpawnDistance"))
-                                        .binding(3, () -> this.zBlockSpawnDistance, (value) -> this.zBlockSpawnDistance = value)
-                                        .controller(IntegerFieldControllerBuilderImpl::new)
-                                        .build())
-                                .build())
-                        .group(OptionGroup.createBuilder()
-                                .name(Text.translatable("cactus_config.separator.allowedBlocksSeparator"))
-                                .option(Option.<Boolean>createBuilder()
-                                        .name(Text.translatable("cactus_config.option.blockSpawning.torches"))
-                                        .binding(true, () -> this.torches, (value) -> this.torches = value)
-                                        .controller(TickBoxControllerBuilderImpl::new)
-                                        .build())
-                                .option(Option.<Boolean>createBuilder()
-                                        .name(Text.translatable("cactus_config.option.blockSpawning.redstoneTorches"))
-                                        .binding(true, () -> this.redstoneTorches, (value) -> this.redstoneTorches = value)
-                                        .controller(TickBoxControllerBuilderImpl::new)
-                                        .build())
-                                .option(Option.<Boolean>createBuilder()
-                                        .name(Text.translatable("cactus_config.option.blockSpawning.redstoneLamps"))
-                                        .binding(true, () -> this.redstoneLamps, (value) -> this.redstoneLamps = value)
-                                        .controller(TickBoxControllerBuilderImpl::new)
-                                        .build())
-                                .option(Option.<Boolean>createBuilder()
-                                        .name(Text.translatable("cactus_config.option.blockSpawning.lanterns"))
-                                        .binding(true, () -> this.lanterns, (value) -> this.lanterns = value)
-                                        .controller(TickBoxControllerBuilderImpl::new)
-                                        .build())
-                                .option(Option.<Boolean>createBuilder()
-                                        .name(Text.translatable("cactus_config.option.blockSpawning.candles"))
-                                        .binding(true, () -> this.candles, (value) -> this.candles = value)
-                                        .controller(TickBoxControllerBuilderImpl::new)
-                                        .build())
-                                .build())
-                        .build())
-                .build().generateScreen(parent);
+    public static boolean spawnMoths(MothSpawnMode type) {
+        if (spawnMoths == MothSpawnMode.ALL) return true;
+        switch (type) {
+            case WORLD -> {
+                return spawnMoths == MothSpawnMode.WORLD;
+            }
+            case BLOCKS -> {
+                return spawnMoths == MothSpawnMode.BLOCKS;
+            }
+            default -> {
+                return false;
+            }
+        }
     }
 
-    public void save() {
-        CONFIG_HANDLER.save();
-    }
-
-    public boolean load() {
-        return CONFIG_HANDLER.load();
+    public enum MothSpawnMode {
+        ALL,
+        WORLD,
+        BLOCKS,
+        NEVER;
     }
 }
