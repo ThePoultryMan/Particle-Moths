@@ -1,0 +1,25 @@
+{
+    "schemaVersion": 1,
+    "id": "particlemoths",
+    "version": "${version}",
+    "name": "Particle-Moths",
+    "description": "Adds moths to your world using particles.",
+    "authors": [],
+    "contact": {},
+    "license": "MIT",
+    "icon": "icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "io.github.thepoultryman.particlemoths.fabric.Particle_MothsFabric"
+        ]
+    },
+    "mixins": [
+        "particlemoths.mixins.json",
+        "particlemoths-common.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.15.9",
+        "minecraft": ">=1.20.4"
+    }
+}
