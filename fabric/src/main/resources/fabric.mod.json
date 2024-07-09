@@ -11,7 +11,7 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "io.github.thepoultryman.particlemoths.fabric.Particle_MothsFabric"
+            "io.github.thepoultryman.particlemoths.fabric.ParticleMothsFabric"
         ]
     },
     "mixins": [
