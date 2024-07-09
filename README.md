@@ -17,9 +17,9 @@ Moths also have a chance to spawn by certain light-emitting blocks. Similarly to
 * Regular Torches (Includes soul torches)
 * Lanterns
 * **Spawn Moths When Lit**
-  * Redstone Torches
-  * Redstone Lamps
-  * Candles
+    * Redstone Torches
+    * Redstone Lamps
+    * Candles
 </details>
 
 ## Configuration
