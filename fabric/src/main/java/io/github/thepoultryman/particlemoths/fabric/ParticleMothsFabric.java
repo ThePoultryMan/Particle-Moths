@@ -1,8 +1,10 @@
 package io.github.thepoultryman.particlemoths.fabric;
 
+import io.github.thepoultryman.particlemoths.MothParticle;
 import io.github.thepoultryman.particlemoths.ParticleMoths;
 import io.github.thepoultryman.particlemoths.mixins.SimpleParticleTypeInvoker;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -16,5 +18,6 @@ public class ParticleMothsFabric implements ClientModInitializer {
         ParticleMoths.init();
 
         Registry.register(BuiltInRegistries.PARTICLE_TYPE, ResourceLocation.fromNamespaceAndPath(ParticleMoths.MOD_ID, "moth"), MOTH);
+        ParticleFactoryRegistry.getInstance().register(ParticleMoths.getOptions(), MothParticle.Factory::new);
     }
 }
