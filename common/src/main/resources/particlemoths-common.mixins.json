@@ -4,6 +4,7 @@
     "package": "io.github.thepoultryman.particlemoths.mixins",
     "compatibilityLevel": "JAVA_17",
     "mixins": [
+        "BlockMixin",
         "CandleMixin",
         "LanternMixin",
         "RedstoneLampMixin",
