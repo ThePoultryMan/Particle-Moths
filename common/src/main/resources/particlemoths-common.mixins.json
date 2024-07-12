@@ -6,7 +6,10 @@
     "mixins": [
         "CandleMixin",
         "LanternMixin",
-        "RedstoneLampMixin"
+        "RedstoneLampMixin",
+        "torches.TorchMixin",
+        "torches.WallRedstoneTorchMixin",
+        "torches.WallTorchMixin"
     ],
     "client": [
         "SimpleParticleTypeInvoker"
