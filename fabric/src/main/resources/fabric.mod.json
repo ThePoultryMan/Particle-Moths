@@ -2,7 +2,7 @@
     "schemaVersion": 1,
     "id": "particlemoths",
     "version": "${version}",
-    "name": "Particle-Moths",
+    "name": "Particle Moths",
     "description": "Adds moths to your world using particles.",
     "authors": [],
     "contact": {},
