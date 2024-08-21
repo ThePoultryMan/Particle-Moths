@@ -57,8 +57,6 @@ public class MothSpawnHelper {
     public static void spawnMothByBlock(Level level, BlockPos pos) {
         if (!ParticleMothsConfig.spawnMoths(ParticleMothsConfig.MothSpawnMode.WORLD) || random.nextFloat(100f) > ParticleMothsConfig.blockSpawnProbability / 2f) return;
 
-        ParticleMoths.LOGGER.info("continuing to spawn moth");
-
         BlockPos spawnPos = getBlockSpawnCoordinates(pos);
         if (isInRainOrWater(level, spawnPos)) return;
         double[] velocities = MothSpawnHelper.getVelocity();
