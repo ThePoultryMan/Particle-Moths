@@ -32,7 +32,7 @@ processResources {
     filesMatching("fabric.mod.json") {
         expand(
                 "version": project.version,
-                "fabricApiVersion": rootProject.fabric_api_version
+                "fabricApiVersion": rootProject.minimum_fapi_version
         )
     }
 }
