@@ -44,7 +44,7 @@ public class MothSpawnHelper {
 
     public static double[] getVelocity() {
         if (!ParticleMothsConfig.specificVelocities) {
-            double velocity = random.nextDouble(-0.75f, 0.75f) * ParticleMothsConfig.xVelocity;
+            double velocity = random.nextDouble(-0.75f, 0.75f) * (ParticleMothsConfig.xVelocity / 100.0f);
             return new double[] {velocity, velocity, velocity};
         } else {
             double velocityX = random.nextDouble(-0.75f, 0.75f) * (ParticleMothsConfig.xVelocity / 100f);
